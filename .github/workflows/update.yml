@@ -3,7 +3,7 @@ name: Update site
 on:
   workflow_dispatch:            # manual run
   schedule:
-    - cron: '00 23 * * *'       # every day 23 UTC
+    - cron: '00 23 * * 2'       # tuesdays at 23 UTC
 
 permissions:
   contents: write               # required to push back
