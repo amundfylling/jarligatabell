@@ -3,7 +3,7 @@ name: Update index.html
 on:
   workflow_dispatch:           # manual "Run workflow" button
   schedule:
-    - cron: '21 13 * * *'      # every day 21:15
+    - cron: '19 35 * * *'      # every day 21:15
 
 permissions:
   contents: write              # allow the job to push back to the repo
