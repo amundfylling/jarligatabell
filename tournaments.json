@@ -10730,6 +10730,30 @@
         "Theodor Fuglestad": 10,
         "Aslaug Olina Narland": 11
       }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=34886": {
+      "season": "2025/2026",
+      "name": "Jarliga 2025/26 #3",
+      "date": "2025-08-20",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=34886",
+      "participants": 13,
+      "winner": "Magnus Klippen",
+      "winner_points": 100,
+      "results": {
+        "Magnus Klippen": 1,
+        "Sinus Moberg": 2,
+        "Andreas Fjermestad": 3,
+        "Arne Hetlelid": 4,
+        "Amund Risa Fylling": 5,
+        "Kristin Fjermestad": 6,
+        "Ane Skadsem": 7,
+        "Kjartan Moberg": 8,
+        "Ruben Nesse Haland": 9,
+        "Theodor Fuglestad": 10,
+        "Sille Moberg": 11,
+        "Nicolas Trae": 12,
+        "Thea Ivarda Sivertsen Olsen": 13
+      }
     }
   }
 }
