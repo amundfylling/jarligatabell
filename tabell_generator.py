@@ -15,6 +15,7 @@ Usage remains the same (see main()).
 import json
 import math
 import time
+import os
 from datetime import datetime
 from urllib.parse import urljoin
 
@@ -36,6 +37,47 @@ TOP_N = 17  # how many results count in "Topp 17"
 
 HTTP_TIMEOUT = 20  # seconds
 SLEEP_BETWEEN = 0.4  # polite delay between requests (seconds)
+
+# persistence for scraped tournaments
+DATA_FILE = "tournaments.json"
+
+# serial page for Jærligaen
+SERIES_URL = "https://stiga.trefik.cz/ithf/ranking/serial.aspx?ID=220004"
+
+
+def season_label(start_year: int) -> str:
+    """Return display label like '2002/2003' for a season starting *start_year*."""
+    return f"{start_year}/{start_year + 1}"
+
+
+def season_filename(start_year: int) -> str:
+    """Return filename like '2002-2003.html' for a season."""
+    return f"{start_year}-{start_year + 1}.html"
+
+
+def season_date_range(start_year: int) -> tuple[str, str]:
+    """Start and end date strings (dd.mm.yyyy) for the season."""
+    start = f"01.07.{start_year}"
+    end = f"30.06.{start_year + 1}"
+    return start, end
+
+
+def current_season_start_year() -> int:
+    """Return starting year of the current season (July-June)."""
+    today = datetime.today()
+    return today.year if today.month >= 7 else today.year - 1
+
+
+def load_data() -> dict:
+    if os.path.exists(DATA_FILE):
+        with open(DATA_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {"tournaments": {}}
+
+
+def save_data(data: dict) -> None:
+    with open(DATA_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
 
 # ----------------------------- Scraping helpers -------------------------------
 
@@ -330,9 +372,87 @@ def build_results_dataframe(series_url: str, start_date_str: str, end_date_str: 
     return df, meta
 
 
+def build_df_from_tournament_data(tournaments: list[dict]):
+    """Build DataFrame & metadata from already scraped tournament data."""
+    all_points: dict[str, dict] = {}
+    all_places: dict[str, dict] = {}
+    t_meta = []
+
+    tournaments_sorted = sorted(tournaments, key=lambda t: t["date"])
+    for i, t in enumerate(tournaments_sorted, start=1):
+        key = f"#{i}"
+        results = t["results"]
+        for player, place in results.items():
+            place = int(place)
+            pts = PLACEMENT_TO_VALUE.get(place, 0)
+            all_points.setdefault(player, {})[key] = pts
+            all_places.setdefault(player, {})[key] = place
+
+        t_meta.append({
+            "key": key,
+            "name": t["name"],
+            "date": t["date"],
+            "url": t["url"],
+            "participants": t.get("participants", len(results)),
+            "winner": t.get("winner", "-"),
+            "winner_points": t.get("winner_points", 0),
+        })
+
+    pts_df = pd.DataFrame.from_dict(all_points, orient="index").fillna(0).astype(int)
+    plc_df = pd.DataFrame.from_dict(all_places, orient="index")
+    league_cols = [f"#{i}" for i in range(1, len(tournaments_sorted) + 1)]
+    for df in (pts_df, plc_df):
+        for c in league_cols:
+            if c not in df.columns:
+                df[c] = 0 if df is pts_df else math.nan
+        df[:] = df[league_cols]
+
+    def count_played(row) -> int:
+        return int((row[league_cols] > 0).sum())
+
+    def avg_points_when_played(row) -> float:
+        vals = row[league_cols]
+        played_vals = vals[vals > 0]
+        return float(round(played_vals.mean(), 2)) if len(played_vals) else 0.0
+
+    def count_wins(name: str) -> int:
+        row = plc_df.loc[name, league_cols]
+        return int((row == 1).sum())
+
+    def count_podiums(name: str) -> int:
+        row = plc_df.loc[name, league_cols]
+        return int((row <= 3).sum())
+
+    def top_n_sum(row, n=TOP_N) -> int:
+        vals = sorted([int(v) for v in row[league_cols] if v > 0], reverse=True)
+        return int(sum(vals[:n]))
+
+    df = pts_df.copy()
+    df["Spilt"] = df.apply(count_played, axis=1)
+    df["Tellende"] = df.apply(lambda r: min(r["Spilt"], TOP_N), axis=1)
+    df["Snitt"] = df.apply(avg_points_when_played, axis=1)
+    df["Seire"] = [count_wins(p) for p in df.index]
+    df["Podier"] = [count_podiums(p) for p in df.index]
+    df["Topp 17"] = df.apply(top_n_sum, axis=1)
+
+    cols_order = ["Topp 17", "Tellende", "Spilt", "Snitt", "Seire", "Podier"] + league_cols
+    df = df[cols_order]
+    df = df.sort_values(by=["Topp 17", "Seire"] + league_cols,
+                        ascending=[False, False] + [False] * len(league_cols))
+    df.insert(0, "Rank", range(1, len(df) + 1))
+
+    meta = {
+        "tournaments": t_meta,
+        "generated_at": datetime.now().isoformat(timespec="seconds"),
+        "top_n": TOP_N,
+    }
+    return df, meta
+
+
 # ----------------------------- HTML rendering ---------------------------------
 
-def df_to_html_file(df: pd.DataFrame, meta: dict, filepath: str):
+def df_to_html_file(df: pd.DataFrame, meta: dict, filepath: str,
+                    season_label: str, season_links: list[tuple[str, str]]):
     """
     Render DataFrame + metadata to a modern, interactive HTML.
 
@@ -348,6 +468,8 @@ def df_to_html_file(df: pd.DataFrame, meta: dict, filepath: str):
     df : DataFrame from build_results_dataframe()
     meta : dict from build_results_dataframe()
     filepath : output .html path
+    season_label : label for currently shown season (e.g. '2024/2025')
+    season_links : list of (label, filename) pairs for navigation
     """
     # Column groups
     league_cols = [c for c in df.columns if c.startswith("#")]
@@ -359,13 +481,21 @@ def df_to_html_file(df: pd.DataFrame, meta: dict, filepath: str):
         "top_n": meta.get("top_n", TOP_N),
     }
 
+    nav_links = []
+    for lbl, fname in season_links:
+        if lbl == season_label:
+            nav_links.append(f"<strong>{lbl}</strong>")
+        else:
+            nav_links.append(f"<a href='{fname}'>{lbl}</a>")
+    nav_html = " | ".join(nav_links)
+
     # HTML head & style
     html = f"""<!DOCTYPE html>
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jærligaen i Bordhockey – Sesongresultater</title>
+  <title>Jærligaen i Bordhockey – {season_label}</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root {{
@@ -388,7 +518,9 @@ def df_to_html_file(df: pd.DataFrame, meta: dict, filepath: str):
     }}
     .wrap {{ max-width:1400px; margin:0 auto; padding:24px; }}
     h1 {{ color:#fff; text-align:center; margin:8px 0 2px; font-weight:800 }}
-    .sub {{ color:#fff; text-align:center; opacity:.9; margin-bottom:16px }}
+    .sub {{ color:#fff; text-align:center; opacity:.9; margin-bottom:8px }}
+    .season-nav {{ text-align:center; margin-bottom:16px; color:#fff; }}
+    .season-nav a {{ color:#fff; margin:0 4px; }}
     .toolbar {{
       display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:center; margin:16px 0 20px;
     }}
@@ -445,7 +577,8 @@ def df_to_html_file(df: pd.DataFrame, meta: dict, filepath: str):
 <body>
   <div class="wrap">
     <h1>Jærligaen i Bordhockey</h1>
-    <div class="sub">Ligatabell - topp {payload["top_n"]} teller</div>
+    <div class="sub">Sesong {season_label} – topp {payload["top_n"]} teller</div>
+    <div class="season-nav">{nav_html}</div>
 
     <div class="cards" id="stats">
       <div class="card"><h3>Antall spillere</h3><div class="val" id="stat_players">-</div></div>
@@ -637,22 +770,69 @@ def df_to_html_file(df: pd.DataFrame, meta: dict, filepath: str):
 # ----------------------------------- Main -------------------------------------
 
 def main():
-    """
-    Run generator end-to-end.
-    - Adjust series_page / dates as needed.
-    """
-    series_page = "https://stiga.trefik.cz/ithf/ranking/serial.aspx?ID=220004"
-    start = "15.07.2025"
-    end   = "15.06.2026"
+    """Fetch new tournaments and rebuild HTML for all seasons."""
 
-    print("🔍 Henter turneringer …")
-    df, meta = build_results_dataframe(series_page, start, end)
+    data = load_data()
+    session = _new_session()
 
-    # Final HTML
-    out_file = "index.html"
-    print(f"🎨 Lager HTML: {out_file}")
-    df_to_html_file(df, meta, out_file)
-    print(f"✅ Ferdig: {out_file}")
+    start_year = 2002
+    current_start = current_season_start_year()
+    season_years = list(range(start_year, current_start + 1))
+
+    # Fetch tournaments
+    for year in season_years:
+        label = season_label(year)
+        start, end = season_date_range(year)
+        print(f"🔍 Henter turneringer for {label} …")
+        try:
+            tournaments = extract_series_tournaments(session, SERIES_URL, start, end)
+        except Exception as e:
+            print(f"⚠️  Klarte ikke hente turneringer for {label}: {e}")
+            continue
+        for t in tournaments:
+            if t["url"] in data["tournaments"]:
+                continue
+            print(f"  ➕ Skraper {t['name']} ({t['date']:%d.%m.%Y})")
+            try:
+                results = extract_tournament_results(session, t["url"])
+            except Exception as e:
+                print(f"    Feil ved skraping av {t['name']}: {e}")
+                continue
+            participants = len(results)
+            winner_name, winner_place = min(results.items(), key=lambda kv: kv[1])
+            winner_points = PLACEMENT_TO_VALUE.get(winner_place, 0)
+            data["tournaments"][t["url"]] = {
+                "season": label,
+                "name": t["name"],
+                "date": t["date"].isoformat(),
+                "url": t["url"],
+                "participants": participants,
+                "winner": winner_name,
+                "winner_points": int(winner_points),
+                "results": results,
+            }
+            time.sleep(SLEEP_BETWEEN)
+
+    save_data(data)
+
+    # Build HTML for each season
+    season_links = [(season_label(y), season_filename(y)) for y in season_years]
+    for year in season_years:
+        label = season_label(year)
+        file = season_filename(year)
+        t_list = [t for t in data["tournaments"].values() if t["season"] == label]
+        if not t_list:
+            continue
+        df, meta = build_df_from_tournament_data(t_list)
+        print(f"🎨 Lager HTML: {file}")
+        df_to_html_file(df, meta, file, label, season_links)
+    # latest season -> index.html
+    latest_label = season_label(current_start)
+    latest_file = season_filename(current_start)
+    if os.path.exists(latest_file):
+        with open(latest_file, "r", encoding="utf-8") as src, open("index.html", "w", encoding="utf-8") as dst:
+            dst.write(src.read())
+    print("✅ Ferdig")
 
 
 if __name__ == "__main__":
