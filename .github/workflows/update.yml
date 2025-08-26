@@ -1,21 +1,16 @@
-name: Update index.html
+name: Update site
 
 on:
-  workflow_dispatch:           # manual "Run workflow" button
+  workflow_dispatch:            # manual run
   schedule:
-    - cron: '40 19 * * *'      # every day 21:15
+    - cron: '00 23 * * *'       # every day 23 UTC
 
 permissions:
-  contents: write              # allow the job to push back to the repo
-
-concurrency:
-  group: update-index
-  cancel-in-progress: false
+  contents: write               # required to push back
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,15 +27,16 @@ jobs:
 
       - name: Run generator
         run: |
-          python tabell_generator.py
+          python tabell_generator.py   # must write index.html in repo root
 
-      - name: Commit and push if changed
+      - name: Commit and push ALL changes
         run: |
+          # Only commit if there are any changes (added/modified/deleted)
           if [[ -n "$(git status --porcelain)" ]]; then
             git config user.name  "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add index.html
-            git commit -m "Auto-update index.html ($(date -u +'%Y-%m-%d %H:%M:%S') UTC)"
+            git add -A
+            git commit -m "Auto-update ($(date -u +'%Y-%m-%d %H:%M:%S') UTC)"
             git push
           else
             echo "No changes to commit."
