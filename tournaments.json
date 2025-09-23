@@ -10754,6 +10754,85 @@
         "Nicolas Trae": 12,
         "Thea Ivarda Sivertsen Olsen": 13
       }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=34953": {
+      "season": "2025/2026",
+      "name": "Jarliga 2025/26 #4",
+      "date": "2025-08-27",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=34953",
+      "participants": 7,
+      "winner": "Magnus Klippen",
+      "winner_points": 100,
+      "results": {
+        "Magnus Klippen": 1,
+        "Sinus Moberg": 2,
+        "Benjamin Nygard": 3,
+        "Andreas Fjermestad": 4,
+        "Kjartan Moberg": 5,
+        "Stine Moberg": 6,
+        "Ruben Nesse Haland": 7
+      }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=34954": {
+      "season": "2025/2026",
+      "name": "Jarliga 2025/26 #5",
+      "date": "2025-09-03",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=34954",
+      "participants": 8,
+      "winner": "Andreas Fjermestad",
+      "winner_points": 100,
+      "results": {
+        "Andreas Fjermestad": 1,
+        "Amund Risa Fylling": 2,
+        "Magnus Klippen": 3,
+        "Arne Hetlelid": 4,
+        "Benjamin Nygard": 5,
+        "Sinus Moberg": 6,
+        "Kjartan Moberg": 7,
+        "Stine Moberg": 8
+      }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=34955": {
+      "season": "2025/2026",
+      "name": "Jarliga 2025/26 #6",
+      "date": "2025-09-10",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=34955",
+      "participants": 5,
+      "winner": "Amund Risa Fylling",
+      "winner_points": 100,
+      "results": {
+        "Amund Risa Fylling": 1,
+        "Andreas Fjermestad": 2,
+        "Sinus Moberg": 3,
+        "Kjartan Moberg": 4,
+        "Stine Moberg": 5
+      }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=34956": {
+      "season": "2025/2026",
+      "name": "Jarliga 2025/26 #7",
+      "date": "2025-09-17",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=34956",
+      "participants": 15,
+      "winner": "Magnus Klippen",
+      "winner_points": 100,
+      "results": {
+        "Magnus Klippen": 1,
+        "Arne Hetlelid": 2,
+        "Benjamin Nygard": 3,
+        "Sinus Moberg": 4,
+        "Amund Risa Fylling": 5,
+        "Andreas Fjermestad": 6,
+        "Ane Skadsem": 7,
+        "Kristin Fjermestad": 8,
+        "Kjartan Moberg": 9,
+        "Stine Moberg": 10,
+        "Nicolas Trae": 11,
+        "Torstein Liland": 12,
+        "Ivar Stadheim": 13,
+        "Torbjorn Taksdal": 14,
+        "Judith Taksdal": 15
+      }
     }
   }
 }
