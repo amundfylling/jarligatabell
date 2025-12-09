@@ -11041,6 +11041,23 @@
         "Torbjorn Taksdal": 10,
         "Judith Taksdal": 11
       }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35271": {
+      "season": "2025/2026",
+      "name": "Jarliga 2025/26 #18",
+      "date": "2025-12-03",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35271",
+      "participants": 6,
+      "winner": "Andreas Fjermestad",
+      "winner_points": 100,
+      "results": {
+        "Andreas Fjermestad": 1,
+        "Amund Risa Fylling": 2,
+        "Sinus Moberg": 3,
+        "Kjartan Moberg": 4,
+        "Ruben Nesse Haland": 5,
+        "Ivar Stadheim": 6
+      }
     }
   }
 }
