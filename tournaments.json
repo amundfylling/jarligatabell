@@ -11058,6 +11058,28 @@
         "Ruben Nesse Haland": 5,
         "Ivar Stadheim": 6
       }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35287": {
+      "season": "2025/2026",
+      "name": "Jarliga 2025/26 #19",
+      "date": "2025-12-10",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35287",
+      "participants": 11,
+      "winner": "Magnus Klippen",
+      "winner_points": 100,
+      "results": {
+        "Magnus Klippen": 1,
+        "Amund Risa Fylling": 2,
+        "Sinus Moberg": 3,
+        "Benjamin Nygard": 4,
+        "Andreas Fjermestad": 5,
+        "Arne Hetlelid": 6,
+        "Kjartan Moberg": 7,
+        "Ruben Nesse Haland": 8,
+        "Ivar Stadheim": 9,
+        "Judith Taksdal": 10,
+        "Stine Moberg": 11
+      }
     }
   }
 }
