@@ -11080,6 +11080,58 @@
         "Judith Taksdal": 10,
         "Stine Moberg": 11
       }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35352": {
+      "season": "2025/2026",
+      "name": "Jarliga 2025/26 #20",
+      "date": "2025-12-17",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35352",
+      "participants": 15,
+      "winner": "Magnus Klippen",
+      "winner_points": 100,
+      "results": {
+        "Magnus Klippen": 1,
+        "Andreas Fjermestad": 2,
+        "Benjamin Nygard": 3,
+        "Amund Risa Fylling": 4,
+        "Oystein Klippen": 5,
+        "Sinus Moberg": 6,
+        "Julian Helle": 7,
+        "Kjartan Moberg": 8,
+        "Ruben Nesse Haland": 9,
+        "Stine Moberg": 10,
+        "Anders Helle": 11,
+        "Ivar Stadheim": 12,
+        "Sille Moberg": 13,
+        "Torbjorn Taksdal": 14,
+        "Judith Taksdal": 15
+      }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35353": {
+      "season": "2025/2026",
+      "name": "KM Jaren 2025 (Jarliga 2025/26 #21)",
+      "date": "2025-12-20",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35353",
+      "participants": 15,
+      "winner": "Magnus Klippen",
+      "winner_points": 100,
+      "results": {
+        "Magnus Klippen": 1,
+        "Daniel Nygard": 2,
+        "Oystein Klippen": 3,
+        "Amund Risa Fylling": 4,
+        "Andreas Fjermestad": 5,
+        "Ane Skadsem": 6,
+        "Benjamin Nygard": 7,
+        "Sinus Moberg": 8,
+        "Kjartan Moberg": 9,
+        "Kristin Fjermestad": 10,
+        "Julian Helle": 11,
+        "Ruben Nesse Haland": 12,
+        "Ivar Stadheim": 13,
+        "Einar Stadheim": 14,
+        "Tollak Nesse Haland": 15
+      }
     }
   }
 }
