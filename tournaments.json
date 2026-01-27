@@ -11132,6 +11132,72 @@
         "Einar Stadheim": 14,
         "Tollak Nesse Haland": 15
       }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35476": {
+      "season": "2025/2026",
+      "name": "Jarliga 2025/26 #22",
+      "date": "2026-01-07",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35476",
+      "participants": 14,
+      "winner": "Magnus Klippen",
+      "winner_points": 100,
+      "results": {
+        "Magnus Klippen": 1,
+        "Amund Risa Fylling": 2,
+        "Andreas Fjermestad": 3,
+        "Benjamin Nygard": 4,
+        "Sinus Moberg": 5,
+        "Kjartan Moberg": 6,
+        "Ane Skadsem": 7,
+        "Arne Hetlelid": 8,
+        "Kristin Fjermestad": 9,
+        "Ivar Stadheim": 10,
+        "Ruben Nesse Haland": 11,
+        "Torbjorn Taksdal": 12,
+        "Sondre Schulze Stapnes": 13,
+        "Judith Taksdal": 14
+      }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35477": {
+      "season": "2025/2026",
+      "name": "Jarliga 2025/26 #23",
+      "date": "2026-01-14",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35477",
+      "participants": 9,
+      "winner": "Amund Risa Fylling",
+      "winner_points": 100,
+      "results": {
+        "Amund Risa Fylling": 1,
+        "Andreas Fjermestad": 2,
+        "Benjamin Nygard": 3,
+        "Ruben Nesse Haland": 4,
+        "Ivar Stadheim": 5,
+        "Einar Stadheim": 6,
+        "Sondre Schulze Stapnes": 7,
+        "Torbjorn Taksdal": 8,
+        "Judith Taksdal": 9
+      }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35478": {
+      "season": "2025/2026",
+      "name": "Jarliga 2025/26 #24",
+      "date": "2026-01-21",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35478",
+      "participants": 10,
+      "winner": "Magnus Klippen",
+      "winner_points": 100,
+      "results": {
+        "Magnus Klippen": 1,
+        "Andreas Fjermestad": 2,
+        "Amund Risa Fylling": 3,
+        "Benjamin Nygard": 4,
+        "Sinus Moberg": 5,
+        "Ane Skadsem": 6,
+        "Kristin Fjermestad": 7,
+        "Kjartan Moberg": 8,
+        "Jonas Bolstad": 9,
+        "Nicolas Trae": 10
+      }
     }
   }
 }
