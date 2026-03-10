@@ -11303,6 +11303,31 @@
         "Sille Moberg": 9,
         "Kjartan Moberg": 10
       }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35622": {
+      "season": "2025/2026",
+      "name": "Jarliga 2025/26 #30",
+      "date": "2026-03-04",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35622",
+      "participants": 14,
+      "winner": "Magnus Klippen",
+      "winner_points": 100,
+      "results": {
+        "Magnus Klippen": 1,
+        "Andreas Fjermestad": 2,
+        "Amund Risa Fylling": 3,
+        "Sinus Moberg": 4,
+        "Benjamin Nygard": 5,
+        "Jonas Bolstad": 6,
+        "Ane Skadsem": 7,
+        "Kristin Fjermestad": 8,
+        "Kjartan Moberg": 9,
+        "Ruben Nesse Haland": 10,
+        "Nicolas Trae": 11,
+        "Sondre Schulze Stapnes": 12,
+        "Theodor Fuglestad": 13,
+        "Olivia Sorstrommen Vestre": 14
+      }
     }
   }
 }
