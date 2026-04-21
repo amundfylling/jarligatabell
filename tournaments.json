@@ -11434,6 +11434,34 @@
         "Sondre Schulze Stapnes": 8,
         "Ruben Nesse Haland": 9
       }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35855": {
+      "season": "2025/2026",
+      "name": "Jarliga 2025/26 #36",
+      "date": "2026-04-15",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35855",
+      "participants": 17,
+      "winner": "Magnus Klippen",
+      "winner_points": 100,
+      "results": {
+        "Magnus Klippen": 1,
+        "Andreas Fjermestad": 2,
+        "Sinus Moberg": 3,
+        "Benjamin Nygard": 4,
+        "Jonas Bolstad": 5,
+        "Ane Skadsem": 6,
+        "Amund Risa Fylling": 7,
+        "Kristin Fjermestad": 8,
+        "Kjartan Moberg": 9,
+        "Sondre Schulze Stapnes": 10,
+        "Ruben Nesse Haland": 11,
+        "Sille Moberg": 12,
+        "Theodor Fuglestad": 13,
+        "Kasper Hole Kverneland": 14,
+        "Emil Bjondal Lonne": 15,
+        "Olivia Sorstrommen Vestre": 16,
+        "Sondre Engelsvoll": 17
+      }
     }
   }
 }
