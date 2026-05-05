@@ -11462,6 +11462,58 @@
         "Olivia Sorstrommen Vestre": 16,
         "Sondre Engelsvoll": 17
       }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35897": {
+      "season": "2025/2026",
+      "name": "Jarliga 2025/26 #37",
+      "date": "2026-04-22",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35897",
+      "participants": 15,
+      "winner": "Magnus Klippen",
+      "winner_points": 100,
+      "results": {
+        "Magnus Klippen": 1,
+        "Amund Risa Fylling": 2,
+        "Andreas Fjermestad": 3,
+        "Benjamin Nygard": 4,
+        "Arne Hetlelid": 5,
+        "Kjartan Moberg": 6,
+        "Sinus Moberg": 7,
+        "Jonas Bolstad": 8,
+        "Ivar Stadheim": 9,
+        "Nicolas Trae": 10,
+        "Sille Moberg": 11,
+        "Emil Bjondal Lonne": 12,
+        "Kasper Hole Kverneland": 13,
+        "Theodor Fuglestad": 14,
+        "Olivia Sorstrommen Vestre": 15
+      }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35898": {
+      "season": "2025/2026",
+      "name": "Jarliga 2025/26 #38",
+      "date": "2026-04-29",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35898",
+      "participants": 15,
+      "winner": "Magnus Klippen",
+      "winner_points": 100,
+      "results": {
+        "Magnus Klippen": 1,
+        "Andreas Fjermestad": 2,
+        "Amund Risa Fylling": 3,
+        "Sinus Moberg": 4,
+        "Benjamin Nygard": 5,
+        "Jonas Bolstad": 6,
+        "Ane Skadsem": 7,
+        "Kjartan Moberg": 8,
+        "Sondre Schulze Stapnes": 9,
+        "Sille Moberg": 10,
+        "Ruben Nesse Haland": 11,
+        "Sondre Engelsvoll": 12,
+        "Nicolas Trae": 13,
+        "Emil Bjondal Lonne": 14,
+        "Petter Engelsvoll": 15
+      }
     }
   }
 }
