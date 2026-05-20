@@ -11514,6 +11514,47 @@
         "Emil Bjondal Lonne": 14,
         "Petter Engelsvoll": 15
       }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35994": {
+      "season": "2025/2026",
+      "name": "Jarliga 2025/26 #39",
+      "date": "2026-05-06",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35994",
+      "participants": 6,
+      "winner": "Arne Hetlelid",
+      "winner_points": 100,
+      "results": {
+        "Arne Hetlelid": 1,
+        "Andreas Fjermestad": 2,
+        "Benjamin Nygard": 3,
+        "Sinus Moberg": 4,
+        "Kjartan Moberg": 5,
+        "Theodor Fuglestad": 6
+      }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35995": {
+      "season": "2025/2026",
+      "name": "Jarliga 2025/26 #40",
+      "date": "2026-05-13",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=35995",
+      "participants": 13,
+      "winner": "Magnus Klippen",
+      "winner_points": 100,
+      "results": {
+        "Magnus Klippen": 1,
+        "Frode Hagerup": 2,
+        "Amund Risa Fylling": 3,
+        "Sinus Moberg": 4,
+        "Andreas Fjermestad": 5,
+        "Arne Hetlelid": 6,
+        "Benjamin Nygard": 7,
+        "Kjartan Moberg": 8,
+        "Ruben Nesse Haland": 9,
+        "Sille Moberg": 10,
+        "Emil Bjondal Lonne": 11,
+        "Vincent Refshus Hagerup": 12,
+        "Tollak Nesse Haland": 13
+      }
     }
   }
 }
