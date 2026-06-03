@@ -11555,6 +11555,53 @@
         "Vincent Refshus Hagerup": 12,
         "Tollak Nesse Haland": 13
       }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=36040": {
+      "season": "2025/2026",
+      "name": "Jarliga 2025/26 #41",
+      "date": "2026-05-20",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=36040",
+      "participants": 11,
+      "winner": "Magnus Klippen",
+      "winner_points": 100,
+      "results": {
+        "Magnus Klippen": 1,
+        "Andreas Fjermestad": 2,
+        "Sinus Moberg": 3,
+        "Arne Hetlelid": 4,
+        "Benjamin Nygard": 5,
+        "Kjartan Moberg": 6,
+        "Ane Skadsem": 7,
+        "Jonas Bolstad": 8,
+        "Alex Lauritsen": 9,
+        "Kristian Hoiland": 10,
+        "Kasper Kverneland": 11
+      }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=36041": {
+      "season": "2025/2026",
+      "name": "Jaren Superpuck 2026 (Jarliga 2025/26 #42)",
+      "date": "2026-05-27",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=36041",
+      "participants": 14,
+      "winner": "Magnus Klippen",
+      "winner_points": 100,
+      "results": {
+        "Magnus Klippen": 1,
+        "Benjamin Nygard": 2,
+        "Amund Risa Fylling": 3,
+        "Sinus Moberg": 4,
+        "Ane Skadsem": 5,
+        "Jonas Bolstad": 6,
+        "Andreas Fjermestad": 7,
+        "Sondre Schulze Stapnes": 8,
+        "Kjartan Moberg": 9,
+        "Ruben Nesse Haland": 10,
+        "Ivar Stadheim": 11,
+        "Emil Bjondal Lonne": 12,
+        "Alex Lauritsen": 13,
+        "Kristian Hoiland": 14
+      }
     }
   }
 }
