@@ -2,166 +2,607 @@
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jærligaen – Sesongoversikt</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root { --primary:#1e40af; --primary-600:#1e3a8a; --border:#e5e7eb; --radius:12px; --muted:#6b7280; }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:Inter, system-ui, sans-serif; background:#f5f7fb; color:#0f172a; }
-    .wrap { max-width:1200px; margin:0 auto; padding:24px; }
-    h1 { margin:0 0 6px; font-weight:800; }
-    .sub { margin:0 0 16px; color:#334155 }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; }
-    .card { background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:14px; }
-    .card h3 { margin:0 0 8px; font-weight:700; }
-    .card p { margin:0; color:#475569; }
-    .val { font-size:26px; font-weight:800; }
-    ol { margin:0 0 0 18px; }
-    table { width:100%; border-collapse:collapse; background:#fff; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
-    th, td { padding:10px; border-bottom:1px solid var(--border); font-size:14px; }
-    th { text-align:left; background:#f8fafc; }
-    tr:last-child td { border-bottom:none; }
-    .charts { display:grid; grid-template-columns:1fr; gap:14px; }
-    @media (min-width: 900px) { .charts { grid-template-columns:1fr 1fr; } }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jærligaen – Sesongstatistikk</title>
+  <meta name="description" content="Se historiske rekorder, adelskalender, deltakelse og utvikling på tvers av Jærligaens sesonger." />
+  <link rel="canonical" href="https://jarligatabell.puck.no/stats.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Jærligaen – Sesongstatistikk" />
+  <meta property="og:description" content="Se historiske rekorder, adelskalender, deltakelse og utvikling på tvers av Jærligaens sesonger." />
+  <meta property="og:url" content="https://jarligatabell.puck.no/stats.html" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./assets/styles.css" />
 </head>
-<body>
-  <div class="wrap">
-    <h1>Sesongoversikt – Jærligaen</h1>
-    <div class="sub">Topp-lister på tvers av alle sesonger + utvikling per sesong</div>
+<body class="page-reveal">
+  <a href="#main-content" class="skip-link">Hopp til hovedinnhold</a>
+  <header class="site-header">
+  <div class="site-wrap site-header__inner">
+    <a href="index.html" class="site-brand" aria-label="Jærligaen – puck.no">
+      <img src="./assets/images/logo.png" alt="NBHF Logo" class="site-brand__logo" width="36" height="36" />
+      <div class="site-brand__text">
+        <span class="site-brand__title">JÆRLIGAEN</span>
+        <span class="site-brand__subtitle">Jærligaen i Bordhockey</span>
+      </div>
+    </a>
+    <nav class="site-nav" aria-label="Hovedmeny">
+      <ul class="site-nav__list">
+        <li><a href="index.html" class="site-nav__link">Tabell</a></li>
+        <li><a href="stats.html" class="site-nav__link" aria-current="page">Sesongstatistikk</a></li>
+        <li><a href="https://puck.no" class="site-nav__link site-nav__link--external" target="_blank" rel="noopener">puck.no ↗</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-    <div class="grid" style="margin-bottom:16px;">
-      <div class="card">
-        <h3>Flest sesongtitler (Top 10)</h3>
-        <ol id="ol_titles"></ol>
+  <main id="main-content">
+    <section class="page-intro">
+      <div class="site-wrap page-intro__grid">
+        <div class="page-intro__content">
+          <div class="page-eyebrow">Jærligaen i Bordhockey</div>
+          <h1 class="page-title">Sesongstatistikk</h1>
+          <p class="page-description">Rekorder, adelskalender og historisk utvikling på tvers av alle sesonger.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>Flest sesong-Pallplasseringer (Top 10)</h3>
-        <ol id="ol_podiums"></ol>
+    </section>
+
+    <section class="standings-section">
+      <div class="site-wrap">
+        <h2 class="section-title" style="margin-bottom: 1.25rem;">Historiske topplister</h2>
+        <div class="leaderboard-grid">
+          <div class="leaderboard-card">
+  <div class="leaderboard-card__header">
+    <h3 class="leaderboard-card__title">Flest sesongtitler</h3>
+  </div>
+  <ol class="leaderboard-card__list">
+    <li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-badge rank-1" style="width: 1.5rem; height: 1.5rem; font-size: 0.75rem;">1</span>
+    <span>Magnus Klippen</span>
+  </div>
+  <div class="leaderboard-card__value">11 titler</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-badge rank-2" style="width: 1.5rem; height: 1.5rem; font-size: 0.75rem;">2</span>
+    <span>Frode Fanuel Horvath</span>
+  </div>
+  <div class="leaderboard-card__value">7 titler</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-badge rank-3" style="width: 1.5rem; height: 1.5rem; font-size: 0.75rem;">3</span>
+    <span>Frode Hagerup</span>
+  </div>
+  <div class="leaderboard-card__value">2 titler</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-other" style="width: 1.5rem; font-size: 0.75rem;">4</span>
+    <span>Vegard Klippen</span>
+  </div>
+  <div class="leaderboard-card__value">2 titler</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-other" style="width: 1.5rem; font-size: 0.75rem;">5</span>
+    <span>Stian Ostrem &quot;Power Gym&quot;</span>
+  </div>
+  <div class="leaderboard-card__value">1 titler</div>
+</li>
+  </ol>
+</div>
+          <div class="leaderboard-card">
+  <div class="leaderboard-card__header">
+    <h3 class="leaderboard-card__title">Flest pallplasser</h3>
+  </div>
+  <ol class="leaderboard-card__list">
+    <li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-badge rank-1" style="width: 1.5rem; height: 1.5rem; font-size: 0.75rem;">1</span>
+    <span>Magnus Klippen</span>
+  </div>
+  <div class="leaderboard-card__value">13 ganger</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-badge rank-2" style="width: 1.5rem; height: 1.5rem; font-size: 0.75rem;">2</span>
+    <span>Andreas Fjermestad</span>
+  </div>
+  <div class="leaderboard-card__value">7 ganger</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-badge rank-3" style="width: 1.5rem; height: 1.5rem; font-size: 0.75rem;">3</span>
+    <span>Frode Fanuel Horvath</span>
+  </div>
+  <div class="leaderboard-card__value">7 ganger</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-other" style="width: 1.5rem; font-size: 0.75rem;">4</span>
+    <span>Frode Hagerup</span>
+  </div>
+  <div class="leaderboard-card__value">7 ganger</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-other" style="width: 1.5rem; font-size: 0.75rem;">5</span>
+    <span>Amund Risa Fylling</span>
+  </div>
+  <div class="leaderboard-card__value">6 ganger</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-other" style="width: 1.5rem; font-size: 0.75rem;">6</span>
+    <span>Oystein Klippen</span>
+  </div>
+  <div class="leaderboard-card__value">5 ganger</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-other" style="width: 1.5rem; font-size: 0.75rem;">7</span>
+    <span>Vegard Klippen</span>
+  </div>
+  <div class="leaderboard-card__value">5 ganger</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-other" style="width: 1.5rem; font-size: 0.75rem;">8</span>
+    <span>Ingebret Risa</span>
+  </div>
+  <div class="leaderboard-card__value">4 ganger</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-other" style="width: 1.5rem; font-size: 0.75rem;">9</span>
+    <span>Kjell Reidar Stokdal</span>
+  </div>
+  <div class="leaderboard-card__value">3 ganger</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-other" style="width: 1.5rem; font-size: 0.75rem;">10</span>
+    <span>Bjorn Hagerup Roken</span>
+  </div>
+  <div class="leaderboard-card__value">2 ganger</div>
+</li>
+  </ol>
+</div>
+          <div class="leaderboard-card">
+  <div class="leaderboard-card__header">
+    <h3 class="leaderboard-card__title">Flest ligadeltakelser</h3>
+  </div>
+  <ol class="leaderboard-card__list">
+    <li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-badge rank-1" style="width: 1.5rem; height: 1.5rem; font-size: 0.75rem;">1</span>
+    <span>Magnus Klippen</span>
+  </div>
+  <div class="leaderboard-card__value">369 ligaer</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-badge rank-2" style="width: 1.5rem; height: 1.5rem; font-size: 0.75rem;">2</span>
+    <span>Andreas Fjermestad</span>
+  </div>
+  <div class="leaderboard-card__value">335 ligaer</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-badge rank-3" style="width: 1.5rem; height: 1.5rem; font-size: 0.75rem;">3</span>
+    <span>Amund Risa Fylling</span>
+  </div>
+  <div class="leaderboard-card__value">257 ligaer</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-other" style="width: 1.5rem; font-size: 0.75rem;">4</span>
+    <span>Oystein Klippen</span>
+  </div>
+  <div class="leaderboard-card__value">210 ligaer</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-other" style="width: 1.5rem; font-size: 0.75rem;">5</span>
+    <span>Arne Hetlelid</span>
+  </div>
+  <div class="leaderboard-card__value">200 ligaer</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-other" style="width: 1.5rem; font-size: 0.75rem;">6</span>
+    <span>Frode Hagerup</span>
+  </div>
+  <div class="leaderboard-card__value">170 ligaer</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-other" style="width: 1.5rem; font-size: 0.75rem;">7</span>
+    <span>Vegard Klippen</span>
+  </div>
+  <div class="leaderboard-card__value">156 ligaer</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-other" style="width: 1.5rem; font-size: 0.75rem;">8</span>
+    <span>Sinus Moberg</span>
+  </div>
+  <div class="leaderboard-card__value">153 ligaer</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-other" style="width: 1.5rem; font-size: 0.75rem;">9</span>
+    <span>Benjamin Nygard</span>
+  </div>
+  <div class="leaderboard-card__value">152 ligaer</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-other" style="width: 1.5rem; font-size: 0.75rem;">10</span>
+    <span>Sondre Efteland Johansen</span>
+  </div>
+  <div class="leaderboard-card__value">112 ligaer</div>
+</li>
+  </ol>
+</div>
+          <div class="leaderboard-card">
+  <div class="leaderboard-card__header">
+    <h3 class="leaderboard-card__title">Flest turneringsseire</h3>
+  </div>
+  <ol class="leaderboard-card__list">
+    <li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-badge rank-1" style="width: 1.5rem; height: 1.5rem; font-size: 0.75rem;">1</span>
+    <span>Magnus Klippen</span>
+  </div>
+  <div class="leaderboard-card__value">263 seire</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-badge rank-2" style="width: 1.5rem; height: 1.5rem; font-size: 0.75rem;">2</span>
+    <span>Frode Fanuel Horvath</span>
+  </div>
+  <div class="leaderboard-card__value">86 seire</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-badge rank-3" style="width: 1.5rem; height: 1.5rem; font-size: 0.75rem;">3</span>
+    <span>Frode Hagerup</span>
+  </div>
+  <div class="leaderboard-card__value">36 seire</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-other" style="width: 1.5rem; font-size: 0.75rem;">4</span>
+    <span>Vegard Klippen</span>
+  </div>
+  <div class="leaderboard-card__value">34 seire</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-other" style="width: 1.5rem; font-size: 0.75rem;">5</span>
+    <span>Amund Risa Fylling</span>
+  </div>
+  <div class="leaderboard-card__value">29 seire</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-other" style="width: 1.5rem; font-size: 0.75rem;">6</span>
+    <span>Oystein Klippen</span>
+  </div>
+  <div class="leaderboard-card__value">23 seire</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-other" style="width: 1.5rem; font-size: 0.75rem;">7</span>
+    <span>Andreas Fjermestad</span>
+  </div>
+  <div class="leaderboard-card__value">20 seire</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-other" style="width: 1.5rem; font-size: 0.75rem;">8</span>
+    <span>Stian Lode</span>
+  </div>
+  <div class="leaderboard-card__value">18 seire</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-other" style="width: 1.5rem; font-size: 0.75rem;">9</span>
+    <span>Jarle Eide</span>
+  </div>
+  <div class="leaderboard-card__value">7 seire</div>
+</li>
+<li class="leaderboard-card__item">
+  <div class="leaderboard-card__player">
+    <span class="rank-other" style="width: 1.5rem; font-size: 0.75rem;">10</span>
+    <span>Arne Hetlelid</span>
+  </div>
+  <div class="leaderboard-card__value">6 seire</div>
+</li>
+  </ol>
+</div>
+        </div>
+
+        <h2 class="section-title" style="margin-top: 2.5rem; margin-bottom: 1.25rem;">Utvikling per sesong</h2>
+        <div class="chart-grid">
+          <div class="chart-card">
+            <h3 class="chart-card__title">Maks deltakere pr. sesong</h3>
+            <div class="chart-container"><canvas id="chMax"></canvas></div>
+          </div>
+          <div class="chart-card">
+            <h3 class="chart-card__title">Snitt deltakere pr. sesong</h3>
+            <div class="chart-container"><canvas id="chAvg"></canvas></div>
+          </div>
+          <div class="chart-card">
+            <h3 class="chart-card__title">Antall unike spillere pr. sesong</h3>
+            <div class="chart-container"><canvas id="chPlayers"></canvas></div>
+          </div>
+          <div class="chart-card">
+            <h3 class="chart-card__title">Antall ligaer pr. sesong</h3>
+            <div class="chart-container"><canvas id="chLeagues"></canvas></div>
+          </div>
+        </div>
+
+        <h2 class="section-title" style="margin-top: 2.5rem; margin-bottom: 1.25rem;">Nøkkeltall per sesong</h2>
+        <div class="table-card">
+          <table class="stats-table">
+            <thead>
+              <tr>
+                <th scope="col">Sesong</th>
+                <th scope="col" class="col-num">Unike spillere</th>
+                <th scope="col" class="col-num">Antall ligaer</th>
+                <th scope="col" class="col-num">Maks deltakere</th>
+                <th scope="col" class="col-num">Snitt deltakere</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+  <td><a href="2002-2003.html" class="content-link" style="font-weight: 700;">2002/2003</a></td>
+  <td class="col-num">29</td>
+  <td class="col-num">10</td>
+  <td class="col-num">21</td>
+  <td class="col-num">14</td>
+</tr>
+<tr>
+  <td><a href="2003-2004.html" class="content-link" style="font-weight: 700;">2003/2004</a></td>
+  <td class="col-num">31</td>
+  <td class="col-num">11</td>
+  <td class="col-num">16</td>
+  <td class="col-num">13</td>
+</tr>
+<tr>
+  <td><a href="2004-2005.html" class="content-link" style="font-weight: 700;">2004/2005</a></td>
+  <td class="col-num">31</td>
+  <td class="col-num">15</td>
+  <td class="col-num">15</td>
+  <td class="col-num">12</td>
+</tr>
+<tr>
+  <td><a href="2005-2006.html" class="content-link" style="font-weight: 700;">2005/2006</a></td>
+  <td class="col-num">22</td>
+  <td class="col-num">14</td>
+  <td class="col-num">15</td>
+  <td class="col-num">10</td>
+</tr>
+<tr>
+  <td><a href="2007-2008.html" class="content-link" style="font-weight: 700;">2007/2008</a></td>
+  <td class="col-num">14</td>
+  <td class="col-num">3</td>
+  <td class="col-num">10</td>
+  <td class="col-num">8</td>
+</tr>
+<tr>
+  <td><a href="2008-2009.html" class="content-link" style="font-weight: 700;">2008/2009</a></td>
+  <td class="col-num">19</td>
+  <td class="col-num">16</td>
+  <td class="col-num">12</td>
+  <td class="col-num">7</td>
+</tr>
+<tr>
+  <td><a href="2009-2010.html" class="content-link" style="font-weight: 700;">2009/2010</a></td>
+  <td class="col-num">23</td>
+  <td class="col-num">19</td>
+  <td class="col-num">13</td>
+  <td class="col-num">8</td>
+</tr>
+<tr>
+  <td><a href="2010-2011.html" class="content-link" style="font-weight: 700;">2010/2011</a></td>
+  <td class="col-num">19</td>
+  <td class="col-num">21</td>
+  <td class="col-num">11</td>
+  <td class="col-num">7</td>
+</tr>
+<tr>
+  <td><a href="2011-2012.html" class="content-link" style="font-weight: 700;">2011/2012</a></td>
+  <td class="col-num">31</td>
+  <td class="col-num">15</td>
+  <td class="col-num">14</td>
+  <td class="col-num">9</td>
+</tr>
+<tr>
+  <td><a href="2012-2013.html" class="content-link" style="font-weight: 700;">2012/2013</a></td>
+  <td class="col-num">39</td>
+  <td class="col-num">18</td>
+  <td class="col-num">18</td>
+  <td class="col-num">10</td>
+</tr>
+<tr>
+  <td><a href="2013-2014.html" class="content-link" style="font-weight: 700;">2013/2014</a></td>
+  <td class="col-num">55</td>
+  <td class="col-num">27</td>
+  <td class="col-num">29</td>
+  <td class="col-num">16</td>
+</tr>
+<tr>
+  <td><a href="2014-2015.html" class="content-link" style="font-weight: 700;">2014/2015</a></td>
+  <td class="col-num">34</td>
+  <td class="col-num">36</td>
+  <td class="col-num">15</td>
+  <td class="col-num">9</td>
+</tr>
+<tr>
+  <td><a href="2015-2016.html" class="content-link" style="font-weight: 700;">2015/2016</a></td>
+  <td class="col-num">39</td>
+  <td class="col-num">39</td>
+  <td class="col-num">16</td>
+  <td class="col-num">9</td>
+</tr>
+<tr>
+  <td><a href="2016-2017.html" class="content-link" style="font-weight: 700;">2016/2017</a></td>
+  <td class="col-num">49</td>
+  <td class="col-num">40</td>
+  <td class="col-num">21</td>
+  <td class="col-num">12</td>
+</tr>
+<tr>
+  <td><a href="2017-2018.html" class="content-link" style="font-weight: 700;">2017/2018</a></td>
+  <td class="col-num">29</td>
+  <td class="col-num">36</td>
+  <td class="col-num">11</td>
+  <td class="col-num">7</td>
+</tr>
+<tr>
+  <td><a href="2018-2019.html" class="content-link" style="font-weight: 700;">2018/2019</a></td>
+  <td class="col-num">24</td>
+  <td class="col-num">23</td>
+  <td class="col-num">14</td>
+  <td class="col-num">4</td>
+</tr>
+<tr>
+  <td><a href="2019-2020.html" class="content-link" style="font-weight: 700;">2019/2020</a></td>
+  <td class="col-num">8</td>
+  <td class="col-num">9</td>
+  <td class="col-num">7</td>
+  <td class="col-num">4</td>
+</tr>
+<tr>
+  <td><a href="2020-2021.html" class="content-link" style="font-weight: 700;">2020/2021</a></td>
+  <td class="col-num">9</td>
+  <td class="col-num">6</td>
+  <td class="col-num">8</td>
+  <td class="col-num">5</td>
+</tr>
+<tr>
+  <td><a href="2021-2022.html" class="content-link" style="font-weight: 700;">2021/2022</a></td>
+  <td class="col-num">27</td>
+  <td class="col-num">37</td>
+  <td class="col-num">13</td>
+  <td class="col-num">8</td>
+</tr>
+<tr>
+  <td><a href="2022-2023.html" class="content-link" style="font-weight: 700;">2022/2023</a></td>
+  <td class="col-num">57</td>
+  <td class="col-num">45</td>
+  <td class="col-num">23</td>
+  <td class="col-num">12</td>
+</tr>
+<tr>
+  <td><a href="2023-2024.html" class="content-link" style="font-weight: 700;">2023/2024</a></td>
+  <td class="col-num">47</td>
+  <td class="col-num">41</td>
+  <td class="col-num">19</td>
+  <td class="col-num">11</td>
+</tr>
+<tr>
+  <td><a href="2024-2025.html" class="content-link" style="font-weight: 700;">2024/2025</a></td>
+  <td class="col-num">47</td>
+  <td class="col-num">36</td>
+  <td class="col-num">19</td>
+  <td class="col-num">10</td>
+</tr>
+<tr>
+  <td><a href="2025-2026.html" class="content-link" style="font-weight: 700;">2025/2026</a></td>
+  <td class="col-num">40</td>
+  <td class="col-num">42</td>
+  <td class="col-num">17</td>
+  <td class="col-num">11</td>
+</tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div class="card">
-        <h3>Flest ligadeltakelser totalt (Top 10)</h3>
-        <ol id="ol_attended"></ol>
-      </div>
-      <div class="card">
-        <h3>Flest turneringsseire totalt (Top 10)</h3>
-        <ol id="ol_twins"></ol>
-      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+  <div class="site-wrap site-footer__inner">
+    <div class="site-footer__brand">
+      <span>Jærligaen i Bordhockey</span>
+      <span>•</span>
+      <span>2026</span>
     </div>
-
-    <div class="charts">
-      <div class="card">
-        <h3>Maks deltakere pr. sesong</h3>
-        <canvas id="chMax"></canvas>
-      </div>
-      <div class="card">
-        <h3>Snitt deltakere pr. sesong</h3>
-        <canvas id="chAvg"></canvas>
-      </div>
-      <div class="card">
-        <h3>Antall unike spillere pr. sesong</h3>
-        <canvas id="chPlayers"></canvas>
-      </div>
-      <div class="card">
-        <h3>Antall ligaer pr. sesong</h3>
-        <canvas id="chLeagues"></canvas>
-      </div>
-    </div>
-
-    <h2 style="margin:18px 0 8px;">Tabell – nøkkeltall pr. sesong</h2>
-    <div class="card">
-      <table>
-        <thead>
-          <tr>
-            <th>Sesong</th>
-            <th>Unike spillere</th>
-            <th>Antall ligaer</th>
-            <th>Maks deltakere</th>
-            <th>Snitt deltakere</th>
-          </tr>
-        </thead>
-        <tbody id="tbodySeason"></tbody>
-      </table>
+    <div>Offisiell turneringsdata fra ITHF · Sist oppdatert: 2002–2025/2026</div>
+    <div class="site-footer__links">
+      <a href="https://puck.no" class="site-footer__link" target="_blank" rel="noopener">puck.no</a>
+      <a href="stats.html" class="site-footer__link">Statistikk</a>
     </div>
   </div>
+</footer>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script type="application/json" id="payload">{"seasons": ["2002/2003", "2003/2004", "2004/2005", "2005/2006", "2007/2008", "2008/2009", "2009/2010", "2010/2011", "2011/2012", "2012/2013", "2013/2014", "2014/2015", "2015/2016", "2016/2017", "2017/2018", "2018/2019", "2019/2020", "2020/2021", "2021/2022", "2022/2023", "2023/2024", "2024/2025", "2025/2026"], "series": {"players": [29, 31, 31, 22, 14, 19, 23, 19, 31, 39, 55, 34, 39, 49, 29, 24, 8, 9, 27, 57, 47, 47, 40], "leagues": [10, 11, 15, 14, 3, 16, 19, 21, 15, 18, 27, 36, 39, 40, 36, 23, 9, 6, 37, 45, 41, 36, 42], "maxParticipants": [21, 16, 15, 15, 10, 12, 13, 11, 14, 18, 29, 15, 16, 21, 11, 14, 7, 8, 13, 23, 19, 19, 17], "avgParticipants": [14, 13, 12, 10, 8, 7, 8, 7, 9, 10, 16, 9, 9, 12, 7, 4, 4, 5, 8, 12, 11, 10, 11]}, "leaderboards": {"seasonTitles": [{"name": "Magnus Klippen", "val": 11}, {"name": "Frode Fanuel Horvath", "val": 7}, {"name": "Frode Hagerup", "val": 2}, {"name": "Vegard Klippen", "val": 2}, {"name": "Stian Ostrem \"Power Gym\"", "val": 1}], "seasonPodiums": [{"name": "Magnus Klippen", "val": 13}, {"name": "Andreas Fjermestad", "val": 7}, {"name": "Frode Fanuel Horvath", "val": 7}, {"name": "Frode Hagerup", "val": 7}, {"name": "Amund Risa Fylling", "val": 6}, {"name": "Oystein Klippen", "val": 5}, {"name": "Vegard Klippen", "val": 5}, {"name": "Ingebret Risa", "val": 4}, {"name": "Kjell Reidar Stokdal", "val": 3}, {"name": "Bjorn Hagerup Roken", "val": 2}], "mostLeaguesAttended": [{"name": "Magnus Klippen", "val": 369}, {"name": "Andreas Fjermestad", "val": 335}, {"name": "Amund Risa Fylling", "val": 257}, {"name": "Oystein Klippen", "val": 210}, {"name": "Arne Hetlelid", "val": 200}, {"name": "Frode Hagerup", "val": 170}, {"name": "Vegard Klippen", "val": 156}, {"name": "Sinus Moberg", "val": 153}, {"name": "Benjamin Nygard", "val": 152}, {"name": "Sondre Efteland Johansen", "val": 112}], "tournamentWins": [{"name": "Magnus Klippen", "val": 263}, {"name": "Frode Fanuel Horvath", "val": 86}, {"name": "Frode Hagerup", "val": 36}, {"name": "Vegard Klippen", "val": 34}, {"name": "Amund Risa Fylling", "val": 29}, {"name": "Oystein Klippen", "val": 23}, {"name": "Andreas Fjermestad", "val": 20}, {"name": "Stian Lode", "val": 18}, {"name": "Jarle Eide", "val": 7}, {"name": "Arne Hetlelid", "val": 6}]}}</script>
+  <script type="application/json" id="payload">{"seasons": ["2002/2003", "2003/2004", "2004/2005", "2005/2006", "2007/2008", "2008/2009", "2009/2010", "2010/2011", "2011/2012", "2012/2013", "2013/2014", "2014/2015", "2015/2016", "2016/2017", "2017/2018", "2018/2019", "2019/2020", "2020/2021", "2021/2022", "2022/2023", "2023/2024", "2024/2025", "2025/2026"], "seasonSummary": [{"season": "2002/2003", "filename": "2002-2003.html", "players": 29, "leagues": 10, "maxPart": 21, "avgPart": 14}, {"season": "2003/2004", "filename": "2003-2004.html", "players": 31, "leagues": 11, "maxPart": 16, "avgPart": 13}, {"season": "2004/2005", "filename": "2004-2005.html", "players": 31, "leagues": 15, "maxPart": 15, "avgPart": 12}, {"season": "2005/2006", "filename": "2005-2006.html", "players": 22, "leagues": 14, "maxPart": 15, "avgPart": 10}, {"season": "2007/2008", "filename": "2007-2008.html", "players": 14, "leagues": 3, "maxPart": 10, "avgPart": 8}, {"season": "2008/2009", "filename": "2008-2009.html", "players": 19, "leagues": 16, "maxPart": 12, "avgPart": 7}, {"season": "2009/2010", "filename": "2009-2010.html", "players": 23, "leagues": 19, "maxPart": 13, "avgPart": 8}, {"season": "2010/2011", "filename": "2010-2011.html", "players": 19, "leagues": 21, "maxPart": 11, "avgPart": 7}, {"season": "2011/2012", "filename": "2011-2012.html", "players": 31, "leagues": 15, "maxPart": 14, "avgPart": 9}, {"season": "2012/2013", "filename": "2012-2013.html", "players": 39, "leagues": 18, "maxPart": 18, "avgPart": 10}, {"season": "2013/2014", "filename": "2013-2014.html", "players": 55, "leagues": 27, "maxPart": 29, "avgPart": 16}, {"season": "2014/2015", "filename": "2014-2015.html", "players": 34, "leagues": 36, "maxPart": 15, "avgPart": 9}, {"season": "2015/2016", "filename": "2015-2016.html", "players": 39, "leagues": 39, "maxPart": 16, "avgPart": 9}, {"season": "2016/2017", "filename": "2016-2017.html", "players": 49, "leagues": 40, "maxPart": 21, "avgPart": 12}, {"season": "2017/2018", "filename": "2017-2018.html", "players": 29, "leagues": 36, "maxPart": 11, "avgPart": 7}, {"season": "2018/2019", "filename": "2018-2019.html", "players": 24, "leagues": 23, "maxPart": 14, "avgPart": 4}, {"season": "2019/2020", "filename": "2019-2020.html", "players": 8, "leagues": 9, "maxPart": 7, "avgPart": 4}, {"season": "2020/2021", "filename": "2020-2021.html", "players": 9, "leagues": 6, "maxPart": 8, "avgPart": 5}, {"season": "2021/2022", "filename": "2021-2022.html", "players": 27, "leagues": 37, "maxPart": 13, "avgPart": 8}, {"season": "2022/2023", "filename": "2022-2023.html", "players": 57, "leagues": 45, "maxPart": 23, "avgPart": 12}, {"season": "2023/2024", "filename": "2023-2024.html", "players": 47, "leagues": 41, "maxPart": 19, "avgPart": 11}, {"season": "2024/2025", "filename": "2024-2025.html", "players": 47, "leagues": 36, "maxPart": 19, "avgPart": 10}, {"season": "2025/2026", "filename": "2025-2026.html", "players": 40, "leagues": 42, "maxPart": 17, "avgPart": 11}], "series": {"players": [29, 31, 31, 22, 14, 19, 23, 19, 31, 39, 55, 34, 39, 49, 29, 24, 8, 9, 27, 57, 47, 47, 40], "leagues": [10, 11, 15, 14, 3, 16, 19, 21, 15, 18, 27, 36, 39, 40, 36, 23, 9, 6, 37, 45, 41, 36, 42], "maxParticipants": [21, 16, 15, 15, 10, 12, 13, 11, 14, 18, 29, 15, 16, 21, 11, 14, 7, 8, 13, 23, 19, 19, 17], "avgParticipants": [14, 13, 12, 10, 8, 7, 8, 7, 9, 10, 16, 9, 9, 12, 7, 4, 4, 5, 8, 12, 11, 10, 11]}, "leaderboards": {"seasonTitles": [{"name": "Magnus Klippen", "val": 11}, {"name": "Frode Fanuel Horvath", "val": 7}, {"name": "Frode Hagerup", "val": 2}, {"name": "Vegard Klippen", "val": 2}, {"name": "Stian Ostrem \"Power Gym\"", "val": 1}], "seasonPodiums": [{"name": "Magnus Klippen", "val": 13}, {"name": "Andreas Fjermestad", "val": 7}, {"name": "Frode Fanuel Horvath", "val": 7}, {"name": "Frode Hagerup", "val": 7}, {"name": "Amund Risa Fylling", "val": 6}, {"name": "Oystein Klippen", "val": 5}, {"name": "Vegard Klippen", "val": 5}, {"name": "Ingebret Risa", "val": 4}, {"name": "Kjell Reidar Stokdal", "val": 3}, {"name": "Bjorn Hagerup Roken", "val": 2}], "mostLeaguesAttended": [{"name": "Magnus Klippen", "val": 369}, {"name": "Andreas Fjermestad", "val": 335}, {"name": "Amund Risa Fylling", "val": 257}, {"name": "Oystein Klippen", "val": 210}, {"name": "Arne Hetlelid", "val": 200}, {"name": "Frode Hagerup", "val": 170}, {"name": "Vegard Klippen", "val": 156}, {"name": "Sinus Moberg", "val": 153}, {"name": "Benjamin Nygard", "val": 152}, {"name": "Sondre Efteland Johansen", "val": 112}], "tournamentWins": [{"name": "Magnus Klippen", "val": 263}, {"name": "Frode Fanuel Horvath", "val": 86}, {"name": "Frode Hagerup", "val": 36}, {"name": "Vegard Klippen", "val": 34}, {"name": "Amund Risa Fylling", "val": 29}, {"name": "Oystein Klippen", "val": 23}, {"name": "Andreas Fjermestad", "val": 20}, {"name": "Stian Lode", "val": 18}, {"name": "Jarle Eide", "val": 7}, {"name": "Arne Hetlelid", "val": 6}]}}</script>
   <script>
-    // -------- helpers --------
     const data = JSON.parse(document.getElementById('payload').textContent);
-    const $ = (s,r=document)=>r.querySelector(s);
 
-    function fillOrderedList(olEl, arr) {
-      olEl.innerHTML = "";
-      arr.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item.name + " – " + item.val;
-        olEl.appendChild(li);
-      });
-    }
-
-    function renderLeaderboards() {
-      fillOrderedList(document.getElementById("ol_titles"),   data.leaderboards.seasonTitles);
-      fillOrderedList(document.getElementById("ol_podiums"),  data.leaderboards.seasonPodiums);
-      fillOrderedList(document.getElementById("ol_attended"), data.leaderboards.mostLeaguesAttended);
-      fillOrderedList(document.getElementById("ol_twins"),    data.leaderboards.tournamentWins);
-    }
-
-    function renderSeasonTable() {
-      const tb = document.getElementById("tbodySeason");
-      tb.innerHTML = "";
-      const seasons = data.seasons;
-      const players = data.series.players;
-      const leagues = data.series.leagues;
-      const maxP = data.series.maxParticipants;
-      const avgP = data.series.avgParticipants;
-      for (let i=0; i<seasons.length; i++) {
-        const tr = document.createElement("tr");
-        const td0 = document.createElement("td"); td0.textContent = seasons[i];
-        const td1 = document.createElement("td"); td1.textContent = players[i];
-        const td2 = document.createElement("td"); td2.textContent = leagues[i];
-        const td3 = document.createElement("td"); td3.textContent = maxP[i];
-        const td4 = document.createElement("td"); td4.textContent = avgP[i];
-        tr.appendChild(td0); tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3); tr.appendChild(td4);
-        tb.appendChild(tr);
-      }
-    }
-
-    function lineChart(id, labels, series, label) {
+    function createTrendChart(id, labels, seriesData, labelName) {
       const ctx = document.getElementById(id).getContext('2d');
       new Chart(ctx, {
         type: 'line',
         data: {
           labels: labels,
-          datasets: [{ label: label, data: series, tension: 0.25, fill: false }]
+          datasets: [{
+            label: labelName,
+            data: seriesData,
+            borderColor: '#c8102e',
+            backgroundColor: 'rgba(200, 16, 46, 0.08)',
+            borderWidth: 2.5,
+            pointBackgroundColor: '#0e2a57',
+            pointRadius: 3,
+            pointHoverRadius: 6,
+            tension: 0.2,
+            fill: true
+          }]
         },
         options: {
           responsive: true,
+          maintainAspectRatio: false,
           scales: {
-            x: { ticks: { autoSkip: true, maxRotation: 0 } },
-            y: { beginAtZero: true, ticks: { precision: 0 } }
+            x: {
+              grid: { color: '#f1f5f9' },
+              ticks: { font: { family: 'Geist Variable, sans-serif', size: 11 }, color: '#64748b' }
+            },
+            y: {
+              beginAtZero: true,
+              grid: { color: '#e2e8f0' },
+              ticks: { precision: 0, font: { family: 'Geist Variable, sans-serif', size: 11 }, color: '#64748b' }
+            }
           },
           plugins: {
-            legend: { display: false }
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#0e2a57',
+              titleFont: { family: 'Bricolage Grotesque Variable, sans-serif' },
+              bodyFont: { family: 'Geist Variable, sans-serif' },
+              padding: 10,
+              cornerRadius: 6
+            }
           }
         }
       });
     }
 
-    function renderCharts() {
+    document.addEventListener('DOMContentLoaded', () => {
       const labels = data.seasons;
-      lineChart("chMax",     labels, data.series.maxParticipants, "Maks deltakere");
-      lineChart("chAvg",     labels, data.series.avgParticipants, "Snitt deltakere");
-      lineChart("chPlayers", labels, data.series.players,         "Unike spillere");
-      lineChart("chLeagues", labels, data.series.leagues,         "Antall ligaer");
-    }
-
-    // init
-    renderLeaderboards();
-    renderSeasonTable();
-    renderCharts();
+      createTrendChart('chMax', labels, data.series.maxParticipants, 'Maks deltakere');
+      createTrendChart('chAvg', labels, data.series.avgParticipants, 'Snitt deltakere');
+      createTrendChart('chPlayers', labels, data.series.players, 'Unike spillere');
+      createTrendChart('chLeagues', labels, data.series.leagues, 'Antall ligaer');
+    });
   </script>
+  <script src="./assets/site.js"></script>
 </body>
 </html>

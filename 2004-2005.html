@@ -2,919 +2,1667 @@
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jærligaen i Bordhockey – 2004/2005</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root { --primary:#1e40af; --primary-600:#1e3a8a; --bg:#0f172a; --panel:#ffffff; --muted:#6b7280; --accent:#f59e0b;
-            --border:#e5e7eb; --good:#10b981; --warn:#f59e0b; --bad:#ef4444; --radius:12px; }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:Inter, system-ui, sans-serif; background:linear-gradient(135deg,#667eea,#764ba2); color:#0f172a; }
-    .wrap { max-width:1400px; margin:0 auto; padding:24px; }
-    h1 { color:#fff; text-align:center; margin:8px 0 2px; font-weight:800 }
-    .sub { color:#fff; text-align:center; opacity:.9; margin-bottom:8px }
-    .season-nav { display:flex; gap:10px; justify-content:center; align-items:center; margin-bottom:16px; color:#fff; }
-    .season-select { padding:10px 12px; border:1px solid var(--border); border-radius:10px; min-width:220px; }
-    .toolbar { display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:center; margin:16px 0 20px; }
-    .btn { border:1px solid var(--border); background:#fff; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:600; text-decoration:none; display:inline-block; }
-    .btn.primary { background:var(--primary); color:#fff; border-color:var(--primary-600); }
-    .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin:14px 0 22px; }
-    .card { background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:14px; text-align:center; box-shadow: 0 8px 20px rgba(0,0,0,.06); }
-    .card h3 { margin:0; color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.06em }
-    .val { font-size:26px; font-weight:800; margin-top:6px; color:var(--primary) }
-    .tablebox { background:#fff; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
-    .scroll { overflow:auto; }
-    table { border-collapse:collapse; width:100%; font-size:14px; }
-    thead th { position:sticky; top:0; background:#f8fafc; border-bottom:2px solid var(--border); padding:10px; text-align:center; white-space:nowrap; cursor:pointer; user-select:none; }
-    th:first-child, td:first-child { position:sticky; left:0; z-index:2; background:#fff; border-right:1px solid var(--border); text-align:left; }
-    th:nth-child(2), td:nth-child(2) { text-align:left; }
-    tbody td { border-bottom:1px solid var(--border); padding:10px; text-align:center; white-space:nowrap; }
-    tbody tr:hover { background:#f3f4f6; }
-    .rank { font-weight:800; color:#111827; }
-    .name { font-weight:600; color:#111827; }
-    .topp17 { font-weight:800; color:var(--accent); background:#fff7ed; }
-    .chip { background:#f1f5f9; border:1px solid var(--border); padding:2px 8px; border-radius:999px; font-size:12px; }
-    .collapsed th.league, .collapsed td.league { display:none; }
-    td[data-score="100"]{ background:rgba(16,185,129,.10); font-weight:800; color:var(--good); }
-    td[data-score="85"] { background:rgba(16,185,129,.08); color:var(--good); font-weight:700; }
-    td[data-score="75"] { background:rgba(16,185,129,.06); color:var(--good); font-weight:700; }
-    td[data-score="65"],td[data-score="60"],td[data-score="55"],td[data-score="50"]{ color:var(--warn); font-weight:700; }
-    td[data-score="0"]  { color:var(--bad); opacity:.9; }
-    .th-meta { display:block; font-size:11px; color:#475569; font-weight:600; }
-    .th-meta a{ color:inherit; text-decoration:none; border-bottom:1px dashed #94a3b8; }
-    .th-meta small{ font-weight:500; color:#64748b }
-    .foot { color:#fff; text-align:center; margin-top:18px; opacity:.9 }
-    @media (max-width: 860px) { .btn, .season-select { width:100%; max-width:520px; } }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jærligaen 2004/2005 – Tabell</title>
+  <meta name="description" content="Se tabellen for Jærligaen 2004/2005, med Topp 17-poeng, deltakelser, seire, pallplasser og resultater." />
+  <link rel="canonical" href="https://jarligatabell.puck.no/2004-2005.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Jærligaen 2004/2005 – Tabell" />
+  <meta property="og:description" content="Se tabellen for Jærligaen 2004/2005, med Topp 17-poeng, deltakelser, seire, pallplasser og resultater." />
+  <meta property="og:url" content="https://jarligatabell.puck.no/2004-2005.html" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./assets/styles.css" />
 </head>
-<body>
-  <div class="wrap">
-    <h1>Jærligaen i Bordhockey</h1>
-    <div class="sub">Sesong 2004/2005 – topp 17 teller</div>
-    <div class="season-nav"><span>Sesong:</span><select id='seasonSelect' class='season-select'><option value='2002-2003.html'>2002/2003</option><option value='2003-2004.html'>2003/2004</option><option value='2004-2005.html' selected>2004/2005</option><option value='2005-2006.html'>2005/2006</option><option value='2007-2008.html'>2007/2008</option><option value='2008-2009.html'>2008/2009</option><option value='2009-2010.html'>2009/2010</option><option value='2010-2011.html'>2010/2011</option><option value='2011-2012.html'>2011/2012</option><option value='2012-2013.html'>2012/2013</option><option value='2013-2014.html'>2013/2014</option><option value='2014-2015.html'>2014/2015</option><option value='2015-2016.html'>2015/2016</option><option value='2016-2017.html'>2016/2017</option><option value='2017-2018.html'>2017/2018</option><option value='2018-2019.html'>2018/2019</option><option value='2019-2020.html'>2019/2020</option><option value='2020-2021.html'>2020/2021</option><option value='2021-2022.html'>2021/2022</option><option value='2022-2023.html'>2022/2023</option><option value='2023-2024.html'>2023/2024</option><option value='2024-2025.html'>2024/2025</option><option value='2025-2026.html'>2025/2026</option><option value='2026-2027.html'>2026/2027</option></select></div>
-
-    <div class="cards" id="stats">
-      <div class="card"><h3>Antall spillere</h3><div class="val" id="stat_players">-</div></div>
-      <div class="card"><h3>Antall ligaer</h3><div class="val" id="stat_leagues">-</div></div>
-      <div class="card"><h3>Maks deltakere</h3><div class="val" id="stat_maxpart">-</div></div>
-      <div class="card"><h3>Snitt deltakere</h3><div class="val" id="stat_avgpart">-</div></div>
-    </div>
-
-    <div class="toolbar">
-    <button id="toggle" class="btn">Vis alle ligaer</button>
-    <a href="stats.html?season=2004-2005" class="btn primary">Sesongstatistikk</a>
-    </div>
-
-
-    <div class="tablebox"><div class="scroll"><table id="tbl" class="collapsed">
-      <thead><tr>
-        <th data-key="Rank" aria-sort="descending">#</th>
-        <th data-key="Spiller">Spiller</th>
-        <th data-key="Topp 17">Topp 17</th>
-        <th data-key="Tellende">Tellende</th>
-        <th data-key="Spilt">Spilt</th>
-        <th data-key="Snitt">Snitt</th>
-        <th data-key="Seire">Seire</th>
-        <th data-key="Pallplasseringer">Pallplasseringer</th>
-        <th class="league" data-key="#1" title="Vinner: Frode Fanuel Horvath (100)">#1<span class="th-meta"><a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=630" target="_blank" rel="noopener">Jarliga 2004/05 #1</a> · 01.08 · <small>11 spillere</small></span></th>
-        <th class="league" data-key="#2" title="Vinner: Frode Fanuel Horvath (100)">#2<span class="th-meta"><a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=631" target="_blank" rel="noopener">Jarliga 2004/05 #2</a> · 01.09 · <small>11 spillere</small></span></th>
-        <th class="league" data-key="#3" title="Vinner: Frode Fanuel Horvath (100)">#3<span class="th-meta"><a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=632" target="_blank" rel="noopener">Jarliga 2004/05 #3</a> · 01.09 · <small>12 spillere</small></span></th>
-        <th class="league" data-key="#4" title="Vinner: Frode Fanuel Horvath (100)">#4<span class="th-meta"><a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=633" target="_blank" rel="noopener">Jarliga 2004/05 #4</a> · 01.10 · <small>10 spillere</small></span></th>
-        <th class="league" data-key="#5" title="Vinner: Frode Fanuel Horvath (100)">#5<span class="th-meta"><a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=634" target="_blank" rel="noopener">Jarliga 2004/05 #5</a> · 01.10 · <small>9 spillere</small></span></th>
-        <th class="league" data-key="#6" title="Vinner: Frode Fanuel Horvath (100)">#6<span class="th-meta"><a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=636" target="_blank" rel="noopener">Jarliga 2004/05 #7</a> · 01.11 · <small>12 spillere</small></span></th>
-        <th class="league" data-key="#7" title="Vinner: Frode Fanuel Horvath (100)">#7<span class="th-meta"><a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=637" target="_blank" rel="noopener">Jarliga 2004/05 #8</a> · 01.11 · <small>15 spillere</small></span></th>
-        <th class="league" data-key="#8" title="Vinner: Arve Oftedal "The Deamon Lord" (100)">#8<span class="th-meta"><a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=635" target="_blank" rel="noopener">Jarliga 2004/05 #6</a> · 02.11 · <small>13 spillere</small></span></th>
-        <th class="league" data-key="#9" title="Vinner: Frode Fanuel Horvath (100)">#9<span class="th-meta"><a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=638" target="_blank" rel="noopener">Jarliga 2004/05 #9</a> · 01.12 · <small>10 spillere</small></span></th>
-        <th class="league" data-key="#10" title="Vinner: Kjell Reidar Stokdal (100)">#10<span class="th-meta"><a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=639" target="_blank" rel="noopener">Jarliga 2004/05 #10</a> · 11.01 · <small>12 spillere</small></span></th>
-        <th class="league" data-key="#11" title="Vinner: Frode Fanuel Horvath (100)">#11<span class="th-meta"><a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=641" target="_blank" rel="noopener">Jarliga 2004/05 #12</a> · 15.02 · <small>14 spillere</small></span></th>
-        <th class="league" data-key="#12" title="Vinner: Frode Fanuel Horvath (100)">#12<span class="th-meta"><a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=642" target="_blank" rel="noopener">Jarliga 2004/05 #13</a> · 01.03 · <small>13 spillere</small></span></th>
-        <th class="league" data-key="#13" title="Vinner: Frode Fanuel Horvath (100)">#13<span class="th-meta"><a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=643" target="_blank" rel="noopener">Jarliga 2004/05 #14</a> · 15.03 · <small>9 spillere</small></span></th>
-        <th class="league" data-key="#14" title="Vinner: Frode Fanuel Horvath (100)">#14<span class="th-meta"><a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=644" target="_blank" rel="noopener">Jarliga 2004/05 #15</a> · 29.03 · <small>15 spillere</small></span></th>
-        <th class="league" data-key="#15" title="Vinner: Ingebret Risa (100)">#15<span class="th-meta"><a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=645" target="_blank" rel="noopener">Jarliga 2004/05 #16</a> · 12.04 · <small>13 spillere</small></span></th>
-      </tr></thead><tbody>
-      <tr>
-        <td class="rank">1</td>
-        <td class="name" data-name="frode fanuel horvath">Frode Fanuel Horvath</td>
-        <td class="topp17">1410</td>
-        <td><span class="chip">15</span></td>
-        <td>15</td>
-        <td>94.00</td>
-        <td>12</td>
-        <td>14</td>
-        <td class="league" data-score="100">100</td>
-        <td class="league" data-score="100">100</td>
-        <td class="league" data-score="100">100</td>
-        <td class="league" data-score="100">100</td>
-        <td class="league" data-score="100">100</td>
-        <td class="league" data-score="100">100</td>
-        <td class="league" data-score="100">100</td>
-        <td class="league" data-score="75">75</td>
-        <td class="league" data-score="100">100</td>
-        <td class="league" data-score="75">75</td>
-        <td class="league" data-score="100">100</td>
-        <td class="league" data-score="100">100</td>
-        <td class="league" data-score="100">100</td>
-        <td class="league" data-score="100">100</td>
-        <td class="league" data-score="60">60</td>
-      </tr>
-      <tr>
-        <td class="rank">2</td>
-        <td class="name" data-name="kjell reidar stokdal">Kjell Reidar Stokdal</td>
-        <td class="topp17">965</td>
-        <td><span class="chip">13</span></td>
-        <td>13</td>
-        <td>74.23</td>
-        <td>1</td>
-        <td>8</td>
-        <td class="league" data-score="60">60</td>
-        <td class="league" data-score="60">60</td>
-        <td class="league" data-score="65">65</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="60">60</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="75">75</td>
-        <td class="league" data-score="85">85</td>
-        <td class="league" data-score="65">65</td>
-        <td class="league" data-score="100">100</td>
-        <td class="league" data-score="85">85</td>
-        <td class="league" data-score="75">75</td>
-        <td class="league" data-score="75">75</td>
-        <td class="league" data-score="75">75</td>
-        <td class="league" data-score="85">85</td>
-      </tr>
-      <tr>
-        <td class="rank">3</td>
-        <td class="name" data-name="ingebret risa">Ingebret Risa</td>
-        <td class="topp17">885</td>
-        <td><span class="chip">12</span></td>
-        <td>12</td>
-        <td>73.75</td>
-        <td>1</td>
-        <td>8</td>
-        <td class="league" data-score="75">75</td>
-        <td class="league" data-score="75">75</td>
-        <td class="league" data-score="75">75</td>
-        <td class="league" data-score="75">75</td>
-        <td class="league" data-score="65">65</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="55">55</td>
-        <td class="league" data-score="65">65</td>
-        <td class="league" data-score="75">75</td>
-        <td class="league" data-score="65">65</td>
-        <td class="league" data-score="75">75</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="85">85</td>
-        <td class="league" data-score="100">100</td>
-      </tr>
-      <tr>
-        <td class="rank">4</td>
-        <td class="name" data-name="arve oftedal "the deamon lord"">Arve Oftedal "The Deamon Lord"</td>
-        <td class="topp17">850</td>
-        <td><span class="chip">11</span></td>
-        <td>11</td>
-        <td>77.27</td>
-        <td>1</td>
-        <td>7</td>
-        <td class="league" data-score="65">65</td>
-        <td class="league" data-score="65">65</td>
-        <td class="league" data-score="85">85</td>
-        <td class="league" data-score="85">85</td>
-        <td class="league" data-score="85">85</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="100">100</td>
-        <td class="league" data-score="60">60</td>
-        <td class="league" data-score="85">85</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="85">85</td>
-        <td class="league" data-score="60">60</td>
-        <td class="league" data-score="75">75</td>
-      </tr>
-      <tr>
-        <td class="rank">5</td>
-        <td class="name" data-name="gustav gudmestad">Gustav Gudmestad</td>
-        <td class="topp17">709</td>
-        <td><span class="chip">13</span></td>
-        <td>13</td>
-        <td>54.54</td>
-        <td>0</td>
-        <td>0</td>
-        <td class="league" data-score="55">55</td>
-        <td class="league" data-score="48">48</td>
-        <td class="league" data-score="50">50</td>
-        <td class="league" data-score="55">55</td>
-        <td class="league" data-score="50">50</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="48">48</td>
-        <td class="league" data-score="55">55</td>
-        <td class="league" data-score="60">60</td>
-        <td class="league" data-score="55">55</td>
-        <td class="league" data-score="55">55</td>
-        <td class="league" data-score="65">65</td>
-        <td class="league" data-score="48">48</td>
-        <td class="league" data-score="65">65</td>
-      </tr>
-      <tr>
-        <td class="rank">6</td>
-        <td class="name" data-name="stig andre solheim">Stig Andre Solheim</td>
-        <td class="topp17">696</td>
-        <td><span class="chip">12</span></td>
-        <td>12</td>
-        <td>58.00</td>
-        <td>0</td>
-        <td>1</td>
-        <td class="league" data-score="48">48</td>
-        <td class="league" data-score="50">50</td>
-        <td class="league" data-score="55">55</td>
-        <td class="league" data-score="60">60</td>
-        <td class="league" data-score="55">55</td>
-        <td class="league" data-score="55">55</td>
-        <td class="league" data-score="48">48</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="85">85</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="60">60</td>
-        <td class="league" data-score="65">65</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="65">65</td>
-        <td class="league" data-score="50">50</td>
-      </tr>
-      <tr>
-        <td class="rank">7</td>
-        <td class="name" data-name="frode hagerup">Frode Hagerup</td>
-        <td class="topp17">680</td>
-        <td><span class="chip">10</span></td>
-        <td>10</td>
-        <td>68.00</td>
-        <td>0</td>
-        <td>4</td>
-        <td class="league" data-score="85">85</td>
-        <td class="league" data-score="85">85</td>
-        <td class="league" data-score="60">60</td>
-        <td class="league" data-score="65">65</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="75">75</td>
-        <td class="league" data-score="60">60</td>
-        <td class="league" data-score="60">60</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="85">85</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="50">50</td>
-        <td class="league" data-score="55">55</td>
-      </tr>
-      <tr>
-        <td class="rank">8</td>
-        <td class="name" data-name="ingve risa">Ingve Risa</td>
-        <td class="topp17">560</td>
-        <td><span class="chip">12</span></td>
-        <td>12</td>
-        <td>46.67</td>
-        <td>0</td>
-        <td>0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="46">46</td>
-        <td class="league" data-score="46">46</td>
-        <td class="league" data-score="48">48</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="50">50</td>
-        <td class="league" data-score="42">42</td>
-        <td class="league" data-score="44">44</td>
-        <td class="league" data-score="50">50</td>
-        <td class="league" data-score="50">50</td>
-        <td class="league" data-score="50">50</td>
-        <td class="league" data-score="48">48</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="44">44</td>
-        <td class="league" data-score="42">42</td>
-      </tr>
-      <tr>
-        <td class="rank">9</td>
-        <td class="name" data-name="arne stangeland">Arne Stangeland</td>
-        <td class="topp17">483</td>
-        <td><span class="chip">9</span></td>
-        <td>9</td>
-        <td>53.67</td>
-        <td>0</td>
-        <td>0</td>
-        <td class="league" data-score="50">50</td>
-        <td class="league" data-score="55">55</td>
-        <td class="league" data-score="48">48</td>
-        <td class="league" data-score="50">50</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="60">60</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="50">50</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="55">55</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="60">60</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="55">55</td>
-        <td class="league" data-score="0">0</td>
-      </tr>
-      <tr>
-        <td class="rank">10</td>
-        <td class="name" data-name="weronica haland">Weronica Haland</td>
-        <td class="topp17">398</td>
-        <td><span class="chip">9</span></td>
-        <td>9</td>
-        <td>44.22</td>
-        <td>0</td>
-        <td>0</td>
-        <td class="league" data-score="42">42</td>
-        <td class="league" data-score="42">42</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="44">44</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="46">46</td>
-        <td class="league" data-score="42">42</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="48">48</td>
-        <td class="league" data-score="48">48</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="42">42</td>
-        <td class="league" data-score="44">44</td>
-      </tr>
-      <tr>
-        <td class="rank">11</td>
-        <td class="name" data-name="tobias taksdal">Tobias Taksdal</td>
-        <td class="topp17">351</td>
-        <td><span class="chip">8</span></td>
-        <td>8</td>
-        <td>43.88</td>
-        <td>0</td>
-        <td>0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="44">44</td>
-        <td class="league" data-score="37">37</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="46">46</td>
-        <td class="league" data-score="46">46</td>
-        <td class="league" data-score="42">42</td>
-        <td class="league" data-score="46">46</td>
-        <td class="league" data-score="50">50</td>
-        <td class="league" data-score="40">40</td>
-        <td class="league" data-score="0">0</td>
-      </tr>
-      <tr>
-        <td class="rank">12</td>
-        <td class="name" data-name="olav tunheim">Olav Tunheim</td>
-        <td class="topp17">338</td>
-        <td><span class="chip">8</span></td>
-        <td>8</td>
-        <td>42.25</td>
-        <td>0</td>
-        <td>0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="46">46</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="39">39</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="44">44</td>
-        <td class="league" data-score="39">39</td>
-        <td class="league" data-score="44">44</td>
-        <td class="league" data-score="48">48</td>
-        <td class="league" data-score="39">39</td>
-        <td class="league" data-score="39">39</td>
-      </tr>
-      <tr>
-        <td class="rank">13</td>
-        <td class="name" data-name="tom risa">Tom Risa</td>
-        <td class="topp17">300</td>
-        <td><span class="chip">4</span></td>
-        <td>4</td>
-        <td>75.00</td>
-        <td>0</td>
-        <td>3</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="75">75</td>
-        <td class="league" data-score="85">85</td>
-        <td class="league" data-score="85">85</td>
-        <td class="league" data-score="55">55</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-      </tr>
-      <tr>
-        <td class="rank">14</td>
-        <td class="name" data-name="sindre hadland">Sindre Hadland</td>
-        <td class="topp17">267</td>
-        <td><span class="chip">6</span></td>
-        <td>6</td>
-        <td>44.50</td>
-        <td>0</td>
-        <td>0</td>
-        <td class="league" data-score="46">46</td>
-        <td class="league" data-score="44">44</td>
-        <td class="league" data-score="44">44</td>
-        <td class="league" data-score="46">46</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="48">48</td>
-        <td class="league" data-score="39">39</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-      </tr>
-      <tr>
-        <td class="rank">15</td>
-        <td class="name" data-name="arne hetlelid">Arne Hetlelid</td>
-        <td class="topp17">248</td>
-        <td><span class="chip">5</span></td>
-        <td>5</td>
-        <td>49.60</td>
-        <td>0</td>
-        <td>0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="46">46</td>
-        <td class="league" data-score="50">50</td>
-        <td class="league" data-score="60">60</td>
-        <td class="league" data-score="46">46</td>
-        <td class="league" data-score="46">46</td>
-      </tr>
-      <tr>
-        <td class="rank">16</td>
-        <td class="name" data-name="anders salte risa">Anders Salte Risa</td>
-        <td class="topp17">214</td>
-        <td><span class="chip">5</span></td>
-        <td>5</td>
-        <td>42.80</td>
-        <td>0</td>
-        <td>0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="42">42</td>
-        <td class="league" data-score="38">38</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="48">48</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="44">44</td>
-        <td class="league" data-score="42">42</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-      </tr>
-      <tr>
-        <td class="rank">17</td>
-        <td class="name" data-name="kristoffer undheim">Kristoffer Undheim</td>
-        <td class="topp17">172</td>
-        <td><span class="chip">4</span></td>
-        <td>4</td>
-        <td>43.00</td>
-        <td>0</td>
-        <td>0</td>
-        <td class="league" data-score="44">44</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="40">40</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="46">46</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="42">42</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-      </tr>
-      <tr>
-        <td class="rank">18</td>
-        <td class="name" data-name="bjorge undheim "rossi"">Bjorge Undheim "Rossi"</td>
-        <td class="topp17">163</td>
-        <td><span class="chip">3</span></td>
-        <td>3</td>
-        <td>54.33</td>
-        <td>0</td>
-        <td>0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="50">50</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="65">65</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="48">48</td>
-      </tr>
-      <tr>
-        <td class="rank">19</td>
-        <td class="name" data-name="andre a. undheim">Andre A. Undheim</td>
-        <td class="topp17">133</td>
-        <td><span class="chip">3</span></td>
-        <td>3</td>
-        <td>44.33</td>
-        <td>0</td>
-        <td>0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="38">38</td>
-        <td class="league" data-score="40">40</td>
-        <td class="league" data-score="55">55</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-      </tr>
-      <tr>
-        <td class="rank">20</td>
-        <td class="name" data-name="hans-oyvind sagen">Hans-Oyvind Sagen</td>
-        <td class="topp17">130</td>
-        <td><span class="chip">2</span></td>
-        <td>2</td>
-        <td>65.00</td>
-        <td>0</td>
-        <td>0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="65">65</td>
-        <td class="league" data-score="65">65</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-      </tr>
-      <tr>
-        <td class="rank">21</td>
-        <td class="name" data-name="erik undheim">Erik Undheim</td>
-        <td class="topp17">124</td>
-        <td><span class="chip">3</span></td>
-        <td>3</td>
-        <td>41.33</td>
-        <td>0</td>
-        <td>0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="40">40</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="44">44</td>
-        <td class="league" data-score="40">40</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-      </tr>
-      <tr>
-        <td class="rank">22</td>
-        <td class="name" data-name="tor livar flugsrud">Tor Livar Flugsrud</td>
-        <td class="topp17">86</td>
-        <td><span class="chip">2</span></td>
-        <td>2</td>
-        <td>43.00</td>
-        <td>0</td>
-        <td>0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="46">46</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="40">40</td>
-      </tr>
-      <tr>
-        <td class="rank">23</td>
-        <td class="name" data-name="ina sikveland">Ina Sikveland</td>
-        <td class="topp17">78</td>
-        <td><span class="chip">2</span></td>
-        <td>2</td>
-        <td>39.00</td>
-        <td>0</td>
-        <td>0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="40">40</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="38">38</td>
-        <td class="league" data-score="0">0</td>
-      </tr>
-      <tr>
-        <td class="rank">24</td>
-        <td class="name" data-name="tor jarle tjaland">Tor Jarle Tjaland</td>
-        <td class="topp17">48</td>
-        <td><span class="chip">1</span></td>
-        <td>1</td>
-        <td>48.00</td>
-        <td>0</td>
-        <td>0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="48">48</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-      </tr>
-      <tr>
-        <td class="rank">25</td>
-        <td class="name" data-name="roger marcussen">Roger Marcussen</td>
-        <td class="topp17">46</td>
-        <td><span class="chip">1</span></td>
-        <td>1</td>
-        <td>46.00</td>
-        <td>0</td>
-        <td>0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="46">46</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-      </tr>
-      <tr>
-        <td class="rank">26</td>
-        <td class="name" data-name="roger risa">Roger Risa</td>
-        <td class="topp17">44</td>
-        <td><span class="chip">1</span></td>
-        <td>1</td>
-        <td>44.00</td>
-        <td>0</td>
-        <td>0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="44">44</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-      </tr>
-      <tr>
-        <td class="rank">27</td>
-        <td class="name" data-name="erik mikal tjaland">Erik Mikal Tjaland</td>
-        <td class="topp17">42</td>
-        <td><span class="chip">1</span></td>
-        <td>1</td>
-        <td>42.00</td>
-        <td>0</td>
-        <td>0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="42">42</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-      </tr>
-      <tr>
-        <td class="rank">28</td>
-        <td class="name" data-name="morten risa">Morten Risa</td>
-        <td class="topp17">40</td>
-        <td><span class="chip">1</span></td>
-        <td>1</td>
-        <td>40.00</td>
-        <td>0</td>
-        <td>0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="40">40</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-      </tr>
-      <tr>
-        <td class="rank">29</td>
-        <td class="name" data-name="livar soyland">Livar Soyland</td>
-        <td class="topp17">40</td>
-        <td><span class="chip">1</span></td>
-        <td>1</td>
-        <td>40.00</td>
-        <td>0</td>
-        <td>0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="40">40</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-      </tr>
-      <tr>
-        <td class="rank">30</td>
-        <td class="name" data-name="rolf einar vikernes">Rolf Einar Vikernes</td>
-        <td class="topp17">39</td>
-        <td><span class="chip">1</span></td>
-        <td>1</td>
-        <td>39.00</td>
-        <td>0</td>
-        <td>0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="39">39</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-      </tr>
-      <tr>
-        <td class="rank">31</td>
-        <td class="name" data-name="kai sikveland">Kai Sikveland</td>
-        <td class="topp17">37</td>
-        <td><span class="chip">1</span></td>
-        <td>1</td>
-        <td>37.00</td>
-        <td>0</td>
-        <td>0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="0">0</td>
-        <td class="league" data-score="37">37</td>
-        <td class="league" data-score="0">0</td>
-      </tr>
-      </tbody></table></div></div>
-
-    <div class="foot">Generert: 05.08.2026 00:00 · Jærligaen i Bordhockey</div>
+<body class="page-reveal">
+  <a href="#main-content" class="skip-link">Hopp til hovedinnhold</a>
+  <header class="site-header">
+  <div class="site-wrap site-header__inner">
+    <a href="index.html" class="site-brand" aria-label="Jærligaen – puck.no">
+      <img src="./assets/images/logo.png" alt="NBHF Logo" class="site-brand__logo" width="36" height="36" />
+      <div class="site-brand__text">
+        <span class="site-brand__title">JÆRLIGAEN</span>
+        <span class="site-brand__subtitle">Jærligaen i Bordhockey</span>
+      </div>
+    </a>
+    <nav class="site-nav" aria-label="Hovedmeny">
+      <ul class="site-nav__list">
+        <li><a href="index.html" class="site-nav__link" aria-current="page">Tabell</a></li>
+        <li><a href="stats.html" class="site-nav__link">Sesongstatistikk</a></li>
+        <li><a href="https://puck.no" class="site-nav__link site-nav__link--external" target="_blank" rel="noopener">puck.no ↗</a></li>
+      </ul>
+    </nav>
   </div>
+</header>
 
-    <script type="application/json" id="payload">{"tournaments": [{"key": "#1", "name": "Jarliga 2004/05 #1", "date": "2004-08-01", "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=630", "participants": 11, "winner": "Frode Fanuel Horvath", "winner_points": 100}, {"key": "#2", "name": "Jarliga 2004/05 #2", "date": "2004-09-01", "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=631", "participants": 11, "winner": "Frode Fanuel Horvath", "winner_points": 100}, {"key": "#3", "name": "Jarliga 2004/05 #3", "date": "2004-09-01", "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=632", "participants": 12, "winner": "Frode Fanuel Horvath", "winner_points": 100}, {"key": "#4", "name": "Jarliga 2004/05 #4", "date": "2004-10-01", "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=633", "participants": 10, "winner": "Frode Fanuel Horvath", "winner_points": 100}, {"key": "#5", "name": "Jarliga 2004/05 #5", "date": "2004-10-01", "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=634", "participants": 9, "winner": "Frode Fanuel Horvath", "winner_points": 100}, {"key": "#6", "name": "Jarliga 2004/05 #7", "date": "2004-11-01", "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=636", "participants": 12, "winner": "Frode Fanuel Horvath", "winner_points": 100}, {"key": "#7", "name": "Jarliga 2004/05 #8", "date": "2004-11-01", "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=637", "participants": 15, "winner": "Frode Fanuel Horvath", "winner_points": 100}, {"key": "#8", "name": "Jarliga 2004/05 #6", "date": "2004-11-02", "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=635", "participants": 13, "winner": "Arve Oftedal \"The Deamon Lord\"", "winner_points": 100}, {"key": "#9", "name": "Jarliga 2004/05 #9", "date": "2004-12-01", "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=638", "participants": 10, "winner": "Frode Fanuel Horvath", "winner_points": 100}, {"key": "#10", "name": "Jarliga 2004/05 #10", "date": "2005-01-11", "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=639", "participants": 12, "winner": "Kjell Reidar Stokdal", "winner_points": 100}, {"key": "#11", "name": "Jarliga 2004/05 #12", "date": "2005-02-15", "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=641", "participants": 14, "winner": "Frode Fanuel Horvath", "winner_points": 100}, {"key": "#12", "name": "Jarliga 2004/05 #13", "date": "2005-03-01", "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=642", "participants": 13, "winner": "Frode Fanuel Horvath", "winner_points": 100}, {"key": "#13", "name": "Jarliga 2004/05 #14", "date": "2005-03-15", "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=643", "participants": 9, "winner": "Frode Fanuel Horvath", "winner_points": 100}, {"key": "#14", "name": "Jarliga 2004/05 #15", "date": "2005-03-29", "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=644", "participants": 15, "winner": "Frode Fanuel Horvath", "winner_points": 100}, {"key": "#15", "name": "Jarliga 2004/05 #16", "date": "2005-04-12", "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=645", "participants": 13, "winner": "Ingebret Risa", "winner_points": 100}], "generated_at": "2026-08-05T00:00:30", "top_n": 17}</script>
-  <script>
-    const $ = (s,r=document)=>r.querySelector(s); const $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
-    const tbl = $("#tbl"), toggleBtn = $("#toggle");
+  <main id="main-content">
+    <section class="page-intro">
+  <div class="site-wrap page-intro__grid">
+    <div class="page-intro__content">
+      <div class="page-eyebrow">Jærligaen i Bordhockey</div>
+      <h1 class="page-title">Tabell 2004/2005</h1>
+      <p class="page-description">De 17 beste turneringsresultatene teller i sesongsammendraget.</p>
+    </div>
+    <div class="season-controls">
+      <label for="season-select" class="season-select-label">Sesong:</label>
+      <div class="season-select-wrapper">
+        <select id="season-select" class="season-select">
+          <option value="2002-2003.html">2002/2003</option><option value="2003-2004.html">2003/2004</option><option value="2004-2005.html" selected>2004/2005</option><option value="2005-2006.html">2005/2006</option><option value="2007-2008.html">2007/2008</option><option value="2008-2009.html">2008/2009</option><option value="2009-2010.html">2009/2010</option><option value="2010-2011.html">2010/2011</option><option value="2011-2012.html">2011/2012</option><option value="2012-2013.html">2012/2013</option><option value="2013-2014.html">2013/2014</option><option value="2014-2015.html">2014/2015</option><option value="2015-2016.html">2015/2016</option><option value="2016-2017.html">2016/2017</option><option value="2017-2018.html">2017/2018</option><option value="2018-2019.html">2018/2019</option><option value="2019-2020.html">2019/2020</option><option value="2020-2021.html">2020/2021</option><option value="2021-2022.html">2021/2022</option><option value="2022-2023.html">2022/2023</option><option value="2023-2024.html">2023/2024</option><option value="2024-2025.html">2024/2025</option><option value="2025-2026.html">2025/2026</option><option value="2026-2027.html">2026/2027</option>
+        </select>
+      </div>
+      <span class="season-status-badge season-status-badge--ended">Avsluttet sesong</span>
+    </div>
+  </div>
+</section>
+    <section class="metrics-section">
+  <div class="site-wrap">
+    <div class="metric-grid">
+      <div class="metric-card">
+        <div class="metric-label">Antall spillere</div>
+        <div class="metric-value">31</div>
+        <div class="metric-sub">Deltakere i sesongen</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Antall ligaer</div>
+        <div class="metric-value">15</div>
+        <div class="metric-sub">Spilte turneringer</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Maks deltakere</div>
+        <div class="metric-value">15</div>
+        <div class="metric-sub">Høyeste oppmøte</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Snitt deltakere</div>
+        <div class="metric-value">12</div>
+        <div class="metric-sub">Spillere per turnering</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    const payload = JSON.parse($("#payload").textContent);
+    <section class="standings-section">
+      <div class="site-wrap">
+        <div class="standings-toolbar">
+  <div class="toolbar-info">
+    <h2 class="section-title">Sesongtabell</h2>
+    <p class="section-desc">Rangeringen avgjøres av Topp 17-poeng, deretter antall seire og beste enkeltresultat.</p>
+  </div>
+  <div class="toolbar-controls">
+    <div class="view-switcher" role="tablist" aria-label="Visningsmodus">
+      <button type="button" id="btn-view-summary" role="tab" aria-selected="true" aria-controls="view-summary">Sammendrag</button>
+      <button type="button" id="btn-view-full" role="tab" aria-selected="false" aria-controls="view-full">Alle ligaer</button>
+    </div>
+    <a href="stats.html?season=2004-2005" class="button-outline" style="min-height: 38px; padding: 0.44rem 0.875rem; font-size: 0.875rem;">Sesongstatistikk 📊</a>
+  </div>
+</div>
+        <div id="view-summary" class="tab-panel" role="tabpanel">
+  <div class="table-card">
+    <table class="standings-table">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 60px; text-align: center;">#</th>
+          <th scope="col">Spiller</th>
+          <th scope="col" class="col-num">Topp 17</th>
+          <th scope="col" class="col-num">Tellende</th>
+          <th scope="col" class="col-num">Spilt</th>
+          <th scope="col" class="col-num">Snitt</th>
+          <th scope="col" class="col-num">Seire</th>
+          <th scope="col" class="col-num">Pallplasser</th>
+          <th scope="col" style="width: 48px;"><span class="sr-only">Detaljer</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+  <td class="col-num col-center"><span class="rank-badge rank-1">1</span></td>
+  <td class="col-player">Frode Fanuel Horvath</td>
+  <td class="col-num col-topp17">1410</td>
+  <td class="col-num">15</td>
+  <td class="col-num">15</td>
+  <td class="col-num">94.00</td>
+  <td class="col-num">12</td>
+  <td class="col-num">14</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-1" aria-label="Vis detaljer for Frode Fanuel Horvath">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-1" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">1410</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">15 / 15</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">94.00</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">12 seire, 14 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-badge rank-2">2</span></td>
+  <td class="col-player">Kjell Reidar Stokdal</td>
+  <td class="col-num col-topp17">965</td>
+  <td class="col-num">13</td>
+  <td class="col-num">13</td>
+  <td class="col-num">74.23</td>
+  <td class="col-num">1</td>
+  <td class="col-num">8</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-2" aria-label="Vis detaljer for Kjell Reidar Stokdal">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-2" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">965</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">13 / 13</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">74.23</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">1 seire, 8 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-badge rank-3">3</span></td>
+  <td class="col-player">Ingebret Risa</td>
+  <td class="col-num col-topp17">885</td>
+  <td class="col-num">12</td>
+  <td class="col-num">12</td>
+  <td class="col-num">73.75</td>
+  <td class="col-num">1</td>
+  <td class="col-num">8</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-3" aria-label="Vis detaljer for Ingebret Risa">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-3" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">885</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">12 / 12</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">73.75</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">1 seire, 8 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">4</span></td>
+  <td class="col-player">Arve Oftedal &quot;The Deamon Lord&quot;</td>
+  <td class="col-num col-topp17">850</td>
+  <td class="col-num">11</td>
+  <td class="col-num">11</td>
+  <td class="col-num">77.27</td>
+  <td class="col-num">1</td>
+  <td class="col-num">7</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-4" aria-label="Vis detaljer for Arve Oftedal &quot;The Deamon Lord&quot;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-4" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">850</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">11 / 11</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">77.27</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">1 seire, 7 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">5</span></td>
+  <td class="col-player">Gustav Gudmestad</td>
+  <td class="col-num col-topp17">709</td>
+  <td class="col-num">13</td>
+  <td class="col-num">13</td>
+  <td class="col-num">54.54</td>
+  <td class="col-num">0</td>
+  <td class="col-num">0</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-5" aria-label="Vis detaljer for Gustav Gudmestad">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-5" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">709</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">13 / 13</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">54.54</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 0 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">6</span></td>
+  <td class="col-player">Stig Andre Solheim</td>
+  <td class="col-num col-topp17">696</td>
+  <td class="col-num">12</td>
+  <td class="col-num">12</td>
+  <td class="col-num">58.00</td>
+  <td class="col-num">0</td>
+  <td class="col-num">1</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-6" aria-label="Vis detaljer for Stig Andre Solheim">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-6" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">696</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">12 / 12</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">58.00</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 1 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">7</span></td>
+  <td class="col-player">Frode Hagerup</td>
+  <td class="col-num col-topp17">680</td>
+  <td class="col-num">10</td>
+  <td class="col-num">10</td>
+  <td class="col-num">68.00</td>
+  <td class="col-num">0</td>
+  <td class="col-num">4</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-7" aria-label="Vis detaljer for Frode Hagerup">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-7" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">680</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">10 / 10</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">68.00</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 4 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">8</span></td>
+  <td class="col-player">Ingve Risa</td>
+  <td class="col-num col-topp17">560</td>
+  <td class="col-num">12</td>
+  <td class="col-num">12</td>
+  <td class="col-num">46.67</td>
+  <td class="col-num">0</td>
+  <td class="col-num">0</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-8" aria-label="Vis detaljer for Ingve Risa">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-8" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">560</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">12 / 12</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">46.67</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 0 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">9</span></td>
+  <td class="col-player">Arne Stangeland</td>
+  <td class="col-num col-topp17">483</td>
+  <td class="col-num">9</td>
+  <td class="col-num">9</td>
+  <td class="col-num">53.67</td>
+  <td class="col-num">0</td>
+  <td class="col-num">0</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-9" aria-label="Vis detaljer for Arne Stangeland">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-9" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">483</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">9 / 9</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">53.67</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 0 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">10</span></td>
+  <td class="col-player">Weronica Haland</td>
+  <td class="col-num col-topp17">398</td>
+  <td class="col-num">9</td>
+  <td class="col-num">9</td>
+  <td class="col-num">44.22</td>
+  <td class="col-num">0</td>
+  <td class="col-num">0</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-10" aria-label="Vis detaljer for Weronica Haland">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-10" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">398</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">9 / 9</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">44.22</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 0 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">11</span></td>
+  <td class="col-player">Tobias Taksdal</td>
+  <td class="col-num col-topp17">351</td>
+  <td class="col-num">8</td>
+  <td class="col-num">8</td>
+  <td class="col-num">43.88</td>
+  <td class="col-num">0</td>
+  <td class="col-num">0</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-11" aria-label="Vis detaljer for Tobias Taksdal">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-11" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">351</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">8 / 8</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">43.88</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 0 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">12</span></td>
+  <td class="col-player">Olav Tunheim</td>
+  <td class="col-num col-topp17">338</td>
+  <td class="col-num">8</td>
+  <td class="col-num">8</td>
+  <td class="col-num">42.25</td>
+  <td class="col-num">0</td>
+  <td class="col-num">0</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-12" aria-label="Vis detaljer for Olav Tunheim">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-12" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">338</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">8 / 8</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">42.25</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 0 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">13</span></td>
+  <td class="col-player">Tom Risa</td>
+  <td class="col-num col-topp17">300</td>
+  <td class="col-num">4</td>
+  <td class="col-num">4</td>
+  <td class="col-num">75.00</td>
+  <td class="col-num">0</td>
+  <td class="col-num">3</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-13" aria-label="Vis detaljer for Tom Risa">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-13" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">300</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">4 / 4</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">75.00</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 3 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">14</span></td>
+  <td class="col-player">Sindre Hadland</td>
+  <td class="col-num col-topp17">267</td>
+  <td class="col-num">6</td>
+  <td class="col-num">6</td>
+  <td class="col-num">44.50</td>
+  <td class="col-num">0</td>
+  <td class="col-num">0</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-14" aria-label="Vis detaljer for Sindre Hadland">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-14" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">267</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">6 / 6</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">44.50</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 0 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">15</span></td>
+  <td class="col-player">Arne Hetlelid</td>
+  <td class="col-num col-topp17">248</td>
+  <td class="col-num">5</td>
+  <td class="col-num">5</td>
+  <td class="col-num">49.60</td>
+  <td class="col-num">0</td>
+  <td class="col-num">0</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-15" aria-label="Vis detaljer for Arne Hetlelid">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-15" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">248</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">5 / 5</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">49.60</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 0 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">16</span></td>
+  <td class="col-player">Anders Salte Risa</td>
+  <td class="col-num col-topp17">214</td>
+  <td class="col-num">5</td>
+  <td class="col-num">5</td>
+  <td class="col-num">42.80</td>
+  <td class="col-num">0</td>
+  <td class="col-num">0</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-16" aria-label="Vis detaljer for Anders Salte Risa">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-16" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">214</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">5 / 5</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">42.80</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 0 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">17</span></td>
+  <td class="col-player">Kristoffer Undheim</td>
+  <td class="col-num col-topp17">172</td>
+  <td class="col-num">4</td>
+  <td class="col-num">4</td>
+  <td class="col-num">43.00</td>
+  <td class="col-num">0</td>
+  <td class="col-num">0</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-17" aria-label="Vis detaljer for Kristoffer Undheim">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-17" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">172</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">4 / 4</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">43.00</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 0 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">18</span></td>
+  <td class="col-player">Bjorge Undheim &quot;Rossi&quot;</td>
+  <td class="col-num col-topp17">163</td>
+  <td class="col-num">3</td>
+  <td class="col-num">3</td>
+  <td class="col-num">54.33</td>
+  <td class="col-num">0</td>
+  <td class="col-num">0</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-18" aria-label="Vis detaljer for Bjorge Undheim &quot;Rossi&quot;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-18" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">163</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">3 / 3</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">54.33</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 0 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">19</span></td>
+  <td class="col-player">Andre A. Undheim</td>
+  <td class="col-num col-topp17">133</td>
+  <td class="col-num">3</td>
+  <td class="col-num">3</td>
+  <td class="col-num">44.33</td>
+  <td class="col-num">0</td>
+  <td class="col-num">0</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-19" aria-label="Vis detaljer for Andre A. Undheim">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-19" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">133</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">3 / 3</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">44.33</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 0 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">20</span></td>
+  <td class="col-player">Hans-Oyvind Sagen</td>
+  <td class="col-num col-topp17">130</td>
+  <td class="col-num">2</td>
+  <td class="col-num">2</td>
+  <td class="col-num">65.00</td>
+  <td class="col-num">0</td>
+  <td class="col-num">0</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-20" aria-label="Vis detaljer for Hans-Oyvind Sagen">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-20" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">130</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">2 / 2</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">65.00</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 0 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">21</span></td>
+  <td class="col-player">Erik Undheim</td>
+  <td class="col-num col-topp17">124</td>
+  <td class="col-num">3</td>
+  <td class="col-num">3</td>
+  <td class="col-num">41.33</td>
+  <td class="col-num">0</td>
+  <td class="col-num">0</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-21" aria-label="Vis detaljer for Erik Undheim">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-21" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">124</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">3 / 3</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">41.33</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 0 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">22</span></td>
+  <td class="col-player">Tor Livar Flugsrud</td>
+  <td class="col-num col-topp17">86</td>
+  <td class="col-num">2</td>
+  <td class="col-num">2</td>
+  <td class="col-num">43.00</td>
+  <td class="col-num">0</td>
+  <td class="col-num">0</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-22" aria-label="Vis detaljer for Tor Livar Flugsrud">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-22" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">86</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">2 / 2</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">43.00</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 0 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">23</span></td>
+  <td class="col-player">Ina Sikveland</td>
+  <td class="col-num col-topp17">78</td>
+  <td class="col-num">2</td>
+  <td class="col-num">2</td>
+  <td class="col-num">39.00</td>
+  <td class="col-num">0</td>
+  <td class="col-num">0</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-23" aria-label="Vis detaljer for Ina Sikveland">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-23" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">78</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">2 / 2</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">39.00</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 0 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">24</span></td>
+  <td class="col-player">Tor Jarle Tjaland</td>
+  <td class="col-num col-topp17">48</td>
+  <td class="col-num">1</td>
+  <td class="col-num">1</td>
+  <td class="col-num">48.00</td>
+  <td class="col-num">0</td>
+  <td class="col-num">0</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-24" aria-label="Vis detaljer for Tor Jarle Tjaland">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-24" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">48</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">1 / 1</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">48.00</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 0 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">25</span></td>
+  <td class="col-player">Roger Marcussen</td>
+  <td class="col-num col-topp17">46</td>
+  <td class="col-num">1</td>
+  <td class="col-num">1</td>
+  <td class="col-num">46.00</td>
+  <td class="col-num">0</td>
+  <td class="col-num">0</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-25" aria-label="Vis detaljer for Roger Marcussen">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-25" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">46</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">1 / 1</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">46.00</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 0 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">26</span></td>
+  <td class="col-player">Roger Risa</td>
+  <td class="col-num col-topp17">44</td>
+  <td class="col-num">1</td>
+  <td class="col-num">1</td>
+  <td class="col-num">44.00</td>
+  <td class="col-num">0</td>
+  <td class="col-num">0</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-26" aria-label="Vis detaljer for Roger Risa">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-26" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">44</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">1 / 1</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">44.00</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 0 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">27</span></td>
+  <td class="col-player">Erik Mikal Tjaland</td>
+  <td class="col-num col-topp17">42</td>
+  <td class="col-num">1</td>
+  <td class="col-num">1</td>
+  <td class="col-num">42.00</td>
+  <td class="col-num">0</td>
+  <td class="col-num">0</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-27" aria-label="Vis detaljer for Erik Mikal Tjaland">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-27" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">42</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">1 / 1</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">42.00</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 0 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">28</span></td>
+  <td class="col-player">Morten Risa</td>
+  <td class="col-num col-topp17">40</td>
+  <td class="col-num">1</td>
+  <td class="col-num">1</td>
+  <td class="col-num">40.00</td>
+  <td class="col-num">0</td>
+  <td class="col-num">0</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-28" aria-label="Vis detaljer for Morten Risa">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-28" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">40</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">1 / 1</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">40.00</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 0 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">29</span></td>
+  <td class="col-player">Livar Soyland</td>
+  <td class="col-num col-topp17">40</td>
+  <td class="col-num">1</td>
+  <td class="col-num">1</td>
+  <td class="col-num">40.00</td>
+  <td class="col-num">0</td>
+  <td class="col-num">0</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-29" aria-label="Vis detaljer for Livar Soyland">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-29" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">40</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">1 / 1</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">40.00</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 0 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">30</span></td>
+  <td class="col-player">Rolf Einar Vikernes</td>
+  <td class="col-num col-topp17">39</td>
+  <td class="col-num">1</td>
+  <td class="col-num">1</td>
+  <td class="col-num">39.00</td>
+  <td class="col-num">0</td>
+  <td class="col-num">0</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-30" aria-label="Vis detaljer for Rolf Einar Vikernes">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-30" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">39</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">1 / 1</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">39.00</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 0 pall</span></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="col-num col-center"><span class="rank-other">31</span></td>
+  <td class="col-player">Kai Sikveland</td>
+  <td class="col-num col-topp17">37</td>
+  <td class="col-num">1</td>
+  <td class="col-num">1</td>
+  <td class="col-num">37.00</td>
+  <td class="col-num">0</td>
+  <td class="col-num">0</td>
+  <td class="row-trigger-cell">
+    <button type="button" class="btn-row-expand" aria-expanded="false" aria-controls="details-p-31" aria-label="Vis detaljer for Kai Sikveland">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </td>
+</tr>
+<tr id="details-p-31" class="row-details-row" hidden>
+  <td colspan="9" class="row-details-cell">
+    <div class="details-grid">
+      <div class="detail-item"><span class="detail-label">Topp 17 poeng</span><span class="detail-value">37</span></div>
+      <div class="detail-item"><span class="detail-label">Tellende / Spilt</span><span class="detail-value">1 / 1</span></div>
+      <div class="detail-item"><span class="detail-label">Snitt poeng</span><span class="detail-value">37.00</span></div>
+      <div class="detail-item"><span class="detail-label">Seire / Pall</span><span class="detail-value">0 seire, 0 pall</span></div>
+    </div>
+  </td>
+</tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+        <div id="view-full" class="tab-panel" role="tabpanel" hidden>
+  <div class="table-card">
+    <div id="scroll-hint" class="scroll-hint">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      <span>Dra sidelengs for å se alle ligaer (15 turneringer)</span>
+    </div>
+    <div class="table-scroll">
+      <table class="standings-table">
+        <thead>
+          <tr>
+<th scope="col" class="sticky-col-rank" style="width: 50px; text-align: center;">#</th>
+<th scope="col" class="sticky-col-player">Spiller</th>
+<th scope="col" class="col-num" style="background: var(--color-navy-dark);">Topp 17</th>
+<th scope="col" class="col-center" title="Vinner: Frode Fanuel Horvath (100p)">
+  <a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=630" class="tour-header-link" target="_blank" rel="noopener">
+    <span>#1</span>
+    <span class="tour-sub">01.08</span>
+    <span class="tour-sub">11 spillere</span>
+  </a>
+</th>
+<th scope="col" class="col-center" title="Vinner: Frode Fanuel Horvath (100p)">
+  <a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=631" class="tour-header-link" target="_blank" rel="noopener">
+    <span>#2</span>
+    <span class="tour-sub">01.09</span>
+    <span class="tour-sub">11 spillere</span>
+  </a>
+</th>
+<th scope="col" class="col-center" title="Vinner: Frode Fanuel Horvath (100p)">
+  <a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=632" class="tour-header-link" target="_blank" rel="noopener">
+    <span>#3</span>
+    <span class="tour-sub">01.09</span>
+    <span class="tour-sub">12 spillere</span>
+  </a>
+</th>
+<th scope="col" class="col-center" title="Vinner: Frode Fanuel Horvath (100p)">
+  <a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=633" class="tour-header-link" target="_blank" rel="noopener">
+    <span>#4</span>
+    <span class="tour-sub">01.10</span>
+    <span class="tour-sub">10 spillere</span>
+  </a>
+</th>
+<th scope="col" class="col-center" title="Vinner: Frode Fanuel Horvath (100p)">
+  <a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=634" class="tour-header-link" target="_blank" rel="noopener">
+    <span>#5</span>
+    <span class="tour-sub">01.10</span>
+    <span class="tour-sub">9 spillere</span>
+  </a>
+</th>
+<th scope="col" class="col-center" title="Vinner: Frode Fanuel Horvath (100p)">
+  <a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=636" class="tour-header-link" target="_blank" rel="noopener">
+    <span>#6</span>
+    <span class="tour-sub">01.11</span>
+    <span class="tour-sub">12 spillere</span>
+  </a>
+</th>
+<th scope="col" class="col-center" title="Vinner: Frode Fanuel Horvath (100p)">
+  <a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=637" class="tour-header-link" target="_blank" rel="noopener">
+    <span>#7</span>
+    <span class="tour-sub">01.11</span>
+    <span class="tour-sub">15 spillere</span>
+  </a>
+</th>
+<th scope="col" class="col-center" title="Vinner: Arve Oftedal &quot;The Deamon Lord&quot; (100p)">
+  <a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=635" class="tour-header-link" target="_blank" rel="noopener">
+    <span>#8</span>
+    <span class="tour-sub">02.11</span>
+    <span class="tour-sub">13 spillere</span>
+  </a>
+</th>
+<th scope="col" class="col-center" title="Vinner: Frode Fanuel Horvath (100p)">
+  <a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=638" class="tour-header-link" target="_blank" rel="noopener">
+    <span>#9</span>
+    <span class="tour-sub">01.12</span>
+    <span class="tour-sub">10 spillere</span>
+  </a>
+</th>
+<th scope="col" class="col-center" title="Vinner: Kjell Reidar Stokdal (100p)">
+  <a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=639" class="tour-header-link" target="_blank" rel="noopener">
+    <span>#10</span>
+    <span class="tour-sub">11.01</span>
+    <span class="tour-sub">12 spillere</span>
+  </a>
+</th>
+<th scope="col" class="col-center" title="Vinner: Frode Fanuel Horvath (100p)">
+  <a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=641" class="tour-header-link" target="_blank" rel="noopener">
+    <span>#11</span>
+    <span class="tour-sub">15.02</span>
+    <span class="tour-sub">14 spillere</span>
+  </a>
+</th>
+<th scope="col" class="col-center" title="Vinner: Frode Fanuel Horvath (100p)">
+  <a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=642" class="tour-header-link" target="_blank" rel="noopener">
+    <span>#12</span>
+    <span class="tour-sub">01.03</span>
+    <span class="tour-sub">13 spillere</span>
+  </a>
+</th>
+<th scope="col" class="col-center" title="Vinner: Frode Fanuel Horvath (100p)">
+  <a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=643" class="tour-header-link" target="_blank" rel="noopener">
+    <span>#13</span>
+    <span class="tour-sub">15.03</span>
+    <span class="tour-sub">9 spillere</span>
+  </a>
+</th>
+<th scope="col" class="col-center" title="Vinner: Frode Fanuel Horvath (100p)">
+  <a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=644" class="tour-header-link" target="_blank" rel="noopener">
+    <span>#14</span>
+    <span class="tour-sub">29.03</span>
+    <span class="tour-sub">15 spillere</span>
+  </a>
+</th>
+<th scope="col" class="col-center" title="Vinner: Ingebret Risa (100p)">
+  <a href="https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=645" class="tour-header-link" target="_blank" rel="noopener">
+    <span>#15</span>
+    <span class="tour-sub">12.04</span>
+    <span class="tour-sub">13 spillere</span>
+  </a>
+</th>
+</tr>
+        </thead>
+        <tbody>
+          <tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-badge rank-1">1</span></td>
+<td class="col-player sticky-col-player">Frode Fanuel Horvath</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">1410</td>
+<td class="cell-result cell-counting">100</td>
+<td class="cell-result cell-counting">100</td>
+<td class="cell-result cell-counting">100</td>
+<td class="cell-result cell-counting">100</td>
+<td class="cell-result cell-counting">100</td>
+<td class="cell-result cell-counting">100</td>
+<td class="cell-result cell-counting">100</td>
+<td class="cell-result cell-counting">75</td>
+<td class="cell-result cell-counting">100</td>
+<td class="cell-result cell-counting">75</td>
+<td class="cell-result cell-counting">100</td>
+<td class="cell-result cell-counting">100</td>
+<td class="cell-result cell-counting">100</td>
+<td class="cell-result cell-counting">100</td>
+<td class="cell-result cell-counting">60</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-badge rank-2">2</span></td>
+<td class="col-player sticky-col-player">Kjell Reidar Stokdal</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">965</td>
+<td class="cell-result cell-counting">60</td>
+<td class="cell-result cell-counting">60</td>
+<td class="cell-result cell-counting">65</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">60</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">75</td>
+<td class="cell-result cell-counting">85</td>
+<td class="cell-result cell-counting">65</td>
+<td class="cell-result cell-counting">100</td>
+<td class="cell-result cell-counting">85</td>
+<td class="cell-result cell-counting">75</td>
+<td class="cell-result cell-counting">75</td>
+<td class="cell-result cell-counting">75</td>
+<td class="cell-result cell-counting">85</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-badge rank-3">3</span></td>
+<td class="col-player sticky-col-player">Ingebret Risa</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">885</td>
+<td class="cell-result cell-counting">75</td>
+<td class="cell-result cell-counting">75</td>
+<td class="cell-result cell-counting">75</td>
+<td class="cell-result cell-counting">75</td>
+<td class="cell-result cell-counting">65</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">55</td>
+<td class="cell-result cell-counting">65</td>
+<td class="cell-result cell-counting">75</td>
+<td class="cell-result cell-counting">65</td>
+<td class="cell-result cell-counting">75</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">85</td>
+<td class="cell-result cell-counting">100</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">4</span></td>
+<td class="col-player sticky-col-player">Arve Oftedal &quot;The Deamon Lord&quot;</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">850</td>
+<td class="cell-result cell-counting">65</td>
+<td class="cell-result cell-counting">65</td>
+<td class="cell-result cell-counting">85</td>
+<td class="cell-result cell-counting">85</td>
+<td class="cell-result cell-counting">85</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">100</td>
+<td class="cell-result cell-counting">60</td>
+<td class="cell-result cell-counting">85</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">85</td>
+<td class="cell-result cell-counting">60</td>
+<td class="cell-result cell-counting">75</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">5</span></td>
+<td class="col-player sticky-col-player">Gustav Gudmestad</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">709</td>
+<td class="cell-result cell-counting">55</td>
+<td class="cell-result cell-counting">48</td>
+<td class="cell-result cell-counting">50</td>
+<td class="cell-result cell-counting">55</td>
+<td class="cell-result cell-counting">50</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">48</td>
+<td class="cell-result cell-counting">55</td>
+<td class="cell-result cell-counting">60</td>
+<td class="cell-result cell-counting">55</td>
+<td class="cell-result cell-counting">55</td>
+<td class="cell-result cell-counting">65</td>
+<td class="cell-result cell-counting">48</td>
+<td class="cell-result cell-counting">65</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">6</span></td>
+<td class="col-player sticky-col-player">Stig Andre Solheim</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">696</td>
+<td class="cell-result cell-counting">48</td>
+<td class="cell-result cell-counting">50</td>
+<td class="cell-result cell-counting">55</td>
+<td class="cell-result cell-counting">60</td>
+<td class="cell-result cell-counting">55</td>
+<td class="cell-result cell-counting">55</td>
+<td class="cell-result cell-counting">48</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">85</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">60</td>
+<td class="cell-result cell-counting">65</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">65</td>
+<td class="cell-result cell-counting">50</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">7</span></td>
+<td class="col-player sticky-col-player">Frode Hagerup</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">680</td>
+<td class="cell-result cell-counting">85</td>
+<td class="cell-result cell-counting">85</td>
+<td class="cell-result cell-counting">60</td>
+<td class="cell-result cell-counting">65</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">75</td>
+<td class="cell-result cell-counting">60</td>
+<td class="cell-result cell-counting">60</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">85</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">50</td>
+<td class="cell-result cell-counting">55</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">8</span></td>
+<td class="col-player sticky-col-player">Ingve Risa</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">560</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">46</td>
+<td class="cell-result cell-counting">46</td>
+<td class="cell-result cell-counting">48</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">50</td>
+<td class="cell-result cell-counting">42</td>
+<td class="cell-result cell-counting">44</td>
+<td class="cell-result cell-counting">50</td>
+<td class="cell-result cell-counting">50</td>
+<td class="cell-result cell-counting">50</td>
+<td class="cell-result cell-counting">48</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">44</td>
+<td class="cell-result cell-counting">42</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">9</span></td>
+<td class="col-player sticky-col-player">Arne Stangeland</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">483</td>
+<td class="cell-result cell-counting">50</td>
+<td class="cell-result cell-counting">55</td>
+<td class="cell-result cell-counting">48</td>
+<td class="cell-result cell-counting">50</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">60</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">50</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">55</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">60</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">55</td>
+<td class="cell-absent">—</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">10</span></td>
+<td class="col-player sticky-col-player">Weronica Haland</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">398</td>
+<td class="cell-result cell-counting">42</td>
+<td class="cell-result cell-counting">42</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">44</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">46</td>
+<td class="cell-result cell-counting">42</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">48</td>
+<td class="cell-result cell-counting">48</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">42</td>
+<td class="cell-result cell-counting">44</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">11</span></td>
+<td class="col-player sticky-col-player">Tobias Taksdal</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">351</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">44</td>
+<td class="cell-result cell-counting">37</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">46</td>
+<td class="cell-result cell-counting">46</td>
+<td class="cell-result cell-counting">42</td>
+<td class="cell-result cell-counting">46</td>
+<td class="cell-result cell-counting">50</td>
+<td class="cell-result cell-counting">40</td>
+<td class="cell-absent">—</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">12</span></td>
+<td class="col-player sticky-col-player">Olav Tunheim</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">338</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">46</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">39</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">44</td>
+<td class="cell-result cell-counting">39</td>
+<td class="cell-result cell-counting">44</td>
+<td class="cell-result cell-counting">48</td>
+<td class="cell-result cell-counting">39</td>
+<td class="cell-result cell-counting">39</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">13</span></td>
+<td class="col-player sticky-col-player">Tom Risa</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">300</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">75</td>
+<td class="cell-result cell-counting">85</td>
+<td class="cell-result cell-counting">85</td>
+<td class="cell-result cell-counting">55</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">14</span></td>
+<td class="col-player sticky-col-player">Sindre Hadland</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">267</td>
+<td class="cell-result cell-counting">46</td>
+<td class="cell-result cell-counting">44</td>
+<td class="cell-result cell-counting">44</td>
+<td class="cell-result cell-counting">46</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">48</td>
+<td class="cell-result cell-counting">39</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">15</span></td>
+<td class="col-player sticky-col-player">Arne Hetlelid</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">248</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">46</td>
+<td class="cell-result cell-counting">50</td>
+<td class="cell-result cell-counting">60</td>
+<td class="cell-result cell-counting">46</td>
+<td class="cell-result cell-counting">46</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">16</span></td>
+<td class="col-player sticky-col-player">Anders Salte Risa</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">214</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">42</td>
+<td class="cell-result cell-counting">38</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">48</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">44</td>
+<td class="cell-result cell-counting">42</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">17</span></td>
+<td class="col-player sticky-col-player">Kristoffer Undheim</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">172</td>
+<td class="cell-result cell-counting">44</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">40</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">46</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">42</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">18</span></td>
+<td class="col-player sticky-col-player">Bjorge Undheim &quot;Rossi&quot;</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">163</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">50</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">65</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">48</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">19</span></td>
+<td class="col-player sticky-col-player">Andre A. Undheim</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">133</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">38</td>
+<td class="cell-result cell-counting">40</td>
+<td class="cell-result cell-counting">55</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">20</span></td>
+<td class="col-player sticky-col-player">Hans-Oyvind Sagen</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">130</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">65</td>
+<td class="cell-result cell-counting">65</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">21</span></td>
+<td class="col-player sticky-col-player">Erik Undheim</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">124</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">40</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">44</td>
+<td class="cell-result cell-counting">40</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">22</span></td>
+<td class="col-player sticky-col-player">Tor Livar Flugsrud</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">86</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">46</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">40</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">23</span></td>
+<td class="col-player sticky-col-player">Ina Sikveland</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">78</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">40</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">38</td>
+<td class="cell-absent">—</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">24</span></td>
+<td class="col-player sticky-col-player">Tor Jarle Tjaland</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">48</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">48</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">25</span></td>
+<td class="col-player sticky-col-player">Roger Marcussen</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">46</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">46</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">26</span></td>
+<td class="col-player sticky-col-player">Roger Risa</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">44</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">44</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">27</span></td>
+<td class="col-player sticky-col-player">Erik Mikal Tjaland</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">42</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">42</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">28</span></td>
+<td class="col-player sticky-col-player">Morten Risa</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">40</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">40</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">29</span></td>
+<td class="col-player sticky-col-player">Livar Soyland</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">40</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">40</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">30</span></td>
+<td class="col-player sticky-col-player">Rolf Einar Vikernes</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">39</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">39</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+</tr>
+<tr>
+<td class="col-num col-center sticky-col-rank"><span class="rank-other">31</span></td>
+<td class="col-player sticky-col-player">Kai Sikveland</td>
+<td class="col-num col-topp17" style="background: var(--color-ice);">37</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-absent">—</td>
+<td class="cell-result cell-counting">37</td>
+<td class="cell-absent">—</td>
+</tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
-    // season dropdown (go to table file)
-    $("#seasonSelect").addEventListener("change", e => { if(e.target.value) location.href = e.target.value; });
+        <div class="info-note">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <div><strong>Forklaring:</strong> <em>Topp 17</em> er summen av de 17 beste poengsummene. <em>Tellende</em> er antall poenggivende plasseringer som inngår i Topp 17. <em>Snitt</em> er gjennomsnittlig poengsum per spilt liga. I matrisen markerer røde prikker teller-resultater.</div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    // stats cards
-    (function(){ 
-      const players = $$("#tbl tbody tr").length;
-      const leagues = $$("#tbl thead th.league").length;
-      const parts = payload.tournaments.map(t=>t.participants||0);
-      const maxp = parts.length?Math.max(...parts):0;
-      const avgp = parts.length?Math.round(parts.reduce((a,b)=>a+b,0)/parts.length):0;
-      $("#stat_players").textContent=players; $("#stat_leagues").textContent=leagues;
-      $("#stat_maxpart").textContent=maxp; $("#stat_avgpart").textContent=avgp;
-    })();
-
-    // toggle league columns
-    toggleBtn.addEventListener("click", () => { 
-      tbl.classList.toggle("collapsed");
-      toggleBtn.textContent = tbl.classList.contains("collapsed") ? "Vis alle ligaer" : "Skjul ligaer";
-    });
-
-    // click-to-sort
-    let sortState={key:"Topp 17",dir:"desc"};
-    function cellVal(tr, idx){ const t=tr.children[idx]?.textContent.trim()||""; const n=Number(t.replace(",", ".")); return isNaN(n)?t:n; }
-    function sortBy(th){ 
-      const ths=$$("#tbl thead th"); const idx=ths.findIndex(x=>x===th);
-      const key=th.dataset.key||""; const dir=(sortState.key===key&&sortState.dir==="asc")?"desc":"asc";
-      sortState={key,dir};
-      const rows=$$("#tbl tbody tr");
-      rows.sort((a,b)=>{ const va=cellVal(a,idx), vb=cellVal(b,idx);
-        return (typeof va==="number"&&typeof vb==="number") ? (dir==="asc"?va-vb:vb-va)
-               : (dir==="asc"?String(va).localeCompare(String(vb)):String(vb).localeCompare(String(va))); });
-      const tb=$("#tbl tbody"); rows.forEach(r=>tb.appendChild(r));
-      ths.forEach(h=>h.setAttribute("aria-sort","none"));
-      th.setAttribute("aria-sort", dir==="asc" ? "ascending" : "descending");
-    }
-    $$("#tbl thead th").forEach(th => th.addEventListener("click", () => sortBy(th)));
-  </script>
+  <footer class="site-footer">
+  <div class="site-wrap site-footer__inner">
+    <div class="site-footer__brand">
+      <span>Jærligaen i Bordhockey</span>
+      <span>•</span>
+      <span>2026</span>
+    </div>
+    <div>Offisiell turneringsdata fra ITHF · Sist oppdatert: 12.04.2005</div>
+    <div class="site-footer__links">
+      <a href="https://puck.no" class="site-footer__link" target="_blank" rel="noopener">puck.no</a>
+      <a href="stats.html" class="site-footer__link">Statistikk</a>
+    </div>
+  </div>
+</footer>
+  <script src="./assets/site.js"></script>
 </body>
 </html>
