@@ -11602,6 +11602,69 @@
         "Alex Lauritsen": 13,
         "Kristian Hoiland": 14
       }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=36256": {
+      "season": "2026/2027",
+      "name": "Jarliga 2026/27 #1",
+      "date": "2026-08-05",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=36256",
+      "participants": 11,
+      "winner": "Daniel Nygard",
+      "winner_points": 100,
+      "results": {
+        "Daniel Nygard": 1,
+        "Magnus Klippen": 2,
+        "Benjamin Nygard": 3,
+        "Sinus Moberg": 4,
+        "Amund Risa Fylling": 5,
+        "Kjartan Moberg": 6,
+        "Jonas Bolstad": 7,
+        "Ivar Stadheim": 8,
+        "Sille Moberg": 9,
+        "Kristian Hoiland": 10,
+        "Kasper Hole Kverneland": 11
+      }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=36257": {
+      "season": "2026/2027",
+      "name": "Jarliga 2026/27 #2",
+      "date": "2026-08-12",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=36257",
+      "participants": 8,
+      "winner": "Magnus Klippen",
+      "winner_points": 100,
+      "results": {
+        "Magnus Klippen": 1,
+        "Benjamin Nygard": 2,
+        "Ane Skadsem": 3,
+        "Kristin Fjermestad": 4,
+        "Ruben Nesse Haland": 5,
+        "Emil Bjondal Lonne": 6,
+        "Kristian Hoiland": 7,
+        "Ivar Stadheim": 8
+      }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=36258": {
+      "season": "2026/2027",
+      "name": "Jarliga 2026/27 #3",
+      "date": "2026-08-19",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=36258",
+      "participants": 11,
+      "winner": "Magnus Klippen",
+      "winner_points": 100,
+      "results": {
+        "Magnus Klippen": 1,
+        "Amund Risa Fylling": 2,
+        "Benjamin Nygard": 3,
+        "Andreas Fjermestad": 4,
+        "Arne Hetlelid": 5,
+        "Sinus Moberg": 6,
+        "Kjartan Moberg": 7,
+        "Ruben Nesse Haland": 8,
+        "Sondre Schulze Stapnes": 9,
+        "Nicolas Trae": 10,
+        "Tollak Nesse Haland": 11
+      }
     }
   }
 }
