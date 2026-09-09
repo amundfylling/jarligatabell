@@ -11665,6 +11665,28 @@
         "Nicolas Trae": 10,
         "Tollak Nesse Haland": 11
       }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=36270": {
+      "season": "2026/2027",
+      "name": "Jarliga 2026/27 #4",
+      "date": "2026-09-02",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=36270",
+      "participants": 11,
+      "winner": "Andreas Fjermestad",
+      "winner_points": 100,
+      "results": {
+        "Andreas Fjermestad": 1,
+        "Benjamin Nygard": 2,
+        "Arne Hetlelid": 3,
+        "Ane Skadsem": 4,
+        "Sinus Moberg": 5,
+        "Kjartan Moberg": 6,
+        "Jonas Bolstad": 7,
+        "Ivar Stadheim": 8,
+        "Sille Moberg": 9,
+        "Olivia Sorstrommen Vestre": 10,
+        "Mia Parreira Mossige": 11
+      }
     }
   }
 }
