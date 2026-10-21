@@ -11782,6 +11782,25 @@
         "Nicolas Trae": 7,
         "Tollak Nesse Haland": 8
       }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=36413": {
+      "season": "2026/2027",
+      "name": "Jarliga 2026/27 #10",
+      "date": "2026-10-14",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=36413",
+      "participants": 8,
+      "winner": "Amund Risa Fylling",
+      "winner_points": 100,
+      "results": {
+        "Amund Risa Fylling": 1,
+        "Arne Hetlelid": 2,
+        "Andreas Fjermestad": 3,
+        "Benjamin Nygard": 4,
+        "Kjartan Moberg": 5,
+        "Sinus Moberg": 6,
+        "Ruben Nesse Haland": 7,
+        "Alex Lauritsen": 8
+      }
     }
   }
 }
