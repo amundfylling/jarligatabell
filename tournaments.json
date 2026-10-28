@@ -11801,6 +11801,26 @@
         "Ruben Nesse Haland": 7,
         "Alex Lauritsen": 8
       }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=36436": {
+      "season": "2026/2027",
+      "name": "Jarliga 2026/27 #11",
+      "date": "2026-10-21",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=36436",
+      "participants": 9,
+      "winner": "Andreas Fjermestad",
+      "winner_points": 100,
+      "results": {
+        "Andreas Fjermestad": 1,
+        "Sinus Moberg": 2,
+        "Kjartan Moberg": 3,
+        "Kristin Fjermestad": 4,
+        "Jonas Bolstad": 5,
+        "Ruben Nesse Haland": 6,
+        "Alex Lauritsen": 7,
+        "Jonathan Helmersen": 8,
+        "Tollak Nesse Haland": 9
+      }
     }
   }
 }
