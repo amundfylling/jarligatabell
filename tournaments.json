@@ -11821,6 +11821,46 @@
         "Jonathan Helmersen": 8,
         "Tollak Nesse Haland": 9
       }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=36501": {
+      "season": "2026/2027",
+      "name": "Jarliga 2026/27 #12",
+      "date": "2026-10-28",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=36501",
+      "participants": 10,
+      "winner": "Magnus Klippen",
+      "winner_points": 100,
+      "results": {
+        "Magnus Klippen": 1,
+        "Benjamin Nygard": 2,
+        "Andreas Fjermestad": 3,
+        "Sinus Moberg": 4,
+        "Amund Risa Fylling": 5,
+        "Ruben Nesse Haland": 6,
+        "Sille Moberg": 7,
+        "Alex Lauritsen": 8,
+        "Olivia Sorstrommen Vestre": 9,
+        "Tollak Nesse Haland": 10
+      }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=36502": {
+      "season": "2026/2027",
+      "name": "Jarliga 2026/27 #13",
+      "date": "2026-11-04",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=36502",
+      "participants": 8,
+      "winner": "Andreas Fjermestad",
+      "winner_points": 100,
+      "results": {
+        "Andreas Fjermestad": 1,
+        "Amund Risa Fylling": 2,
+        "Kristin Fjermestad": 3,
+        "Ane Skadsem": 4,
+        "Ruben Nesse Haland": 5,
+        "Sille Moberg": 6,
+        "Alex Lauritsen": 7,
+        "Olivia Sorstrommen Vestre": 8
+      }
     }
   }
 }
