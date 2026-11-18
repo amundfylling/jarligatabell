@@ -11861,6 +11861,32 @@
         "Alex Lauritsen": 7,
         "Olivia Sorstrommen Vestre": 8
       }
+    },
+    "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=36520": {
+      "season": "2026/2027",
+      "name": "Jaerliga 2026/27 #14",
+      "date": "2026-11-11",
+      "url": "https://stiga.trefik.cz/ithf/ranking/tournament.aspx?id=36520",
+      "participants": 15,
+      "winner": "Magnus Klippen",
+      "winner_points": 100,
+      "results": {
+        "Magnus Klippen": 1,
+        "Ane Skadsem": 2,
+        "Benjamin Nygard": 3,
+        "Sinus Moberg": 4,
+        "Kristin Fjermestad": 5,
+        "Andreas Fjermestad": 6,
+        "Sondre Schulze Stapnes": 7,
+        "Sille Moberg": 8,
+        "Ruben Nesse Haland": 9,
+        "Alex Lauritsen": 10,
+        "Emil Bjondal Lonne": 11,
+        "Sondre Engelsvoll": 12,
+        "Tollak Nesse Haland": 13,
+        "Mia Parreira Mossige": 14,
+        "Olivia Sorstrommen Vestre": 15
+      }
     }
   }
 }
